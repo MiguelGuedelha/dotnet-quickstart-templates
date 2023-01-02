@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Infrastructure", "CleanArchMinimalApi.Infrastructure\CleanArchMinimalApi.Infrastructure.csproj", "{47602827-0590-48A7-AA9C-F659EA52D98F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Domain", "CleanArchMinimalApi.Domain\CleanArchMinimalApi.Domain.csproj", "{65CED120-C5EF-43C4-88D2-926156BDE962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Application", "CleanArchMinimalApi.Application\CleanArchMinimalApi.Application.csproj", "{5FA70C3E-9644-4E87-994A-734A3BC697B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Api", "CleanArchMinimalApi.Api\CleanArchMinimalApi.Api.csproj", "{AC76B2FA-5AAF-4240-8CE6-277D101162B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "001 Solution Items", "001 Solution Items", "{6EB56BCC-8573-4408-A140-5F76F1FC2CF7}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47602827-0590-48A7-AA9C-F659EA52D98F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47602827-0590-48A7-AA9C-F659EA52D98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47602827-0590-48A7-AA9C-F659EA52D98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47602827-0590-48A7-AA9C-F659EA52D98F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CED120-C5EF-43C4-88D2-926156BDE962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CED120-C5EF-43C4-88D2-926156BDE962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CED120-C5EF-43C4-88D2-926156BDE962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CED120-C5EF-43C4-88D2-926156BDE962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FA70C3E-9644-4E87-994A-734A3BC697B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA70C3E-9644-4E87-994A-734A3BC697B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA70C3E-9644-4E87-994A-734A3BC697B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA70C3E-9644-4E87-994A-734A3BC697B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC76B2FA-5AAF-4240-8CE6-277D101162B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC76B2FA-5AAF-4240-8CE6-277D101162B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC76B2FA-5AAF-4240-8CE6-277D101162B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC76B2FA-5AAF-4240-8CE6-277D101162B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2B447ED-0E66-4846-8365-F9E7C93413A9}
+	EndGlobalSection
+EndGlobal
