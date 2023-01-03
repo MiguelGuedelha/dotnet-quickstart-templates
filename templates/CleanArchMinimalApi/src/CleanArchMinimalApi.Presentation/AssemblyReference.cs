@@ -1,0 +1,8 @@
+﻿using System.Reflection;
+
+namespace CleanArchMinimalApi.Presentation;
+
+public static class AssemblyReference
+{
+    public static Assembly Instance => Assembly.GetAssembly(typeof(AssemblyReference));
+}

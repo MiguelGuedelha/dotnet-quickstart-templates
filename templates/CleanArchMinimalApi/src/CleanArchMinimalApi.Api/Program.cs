@@ -1,7 +1,14 @@
+﻿using Carter;
+using CleanArchMinimalApi.Application;
+using MediatR;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCarter();
+builder.Services.AddMediatR(AssemblyReference.Instance);
 
 var app = builder.Build();
 
@@ -13,5 +20,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapCarter();
 
 app.Run();

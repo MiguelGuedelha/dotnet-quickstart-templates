@@ -1,3 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <ItemGroup>
+    <PackageReference Include="Mapster" />
+    <PackageReference Include="MediatR" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchMinimalApi.Domain\CleanArchMinimalApi.Domain.csproj" />
+  </ItemGroup>
 
 </Project>

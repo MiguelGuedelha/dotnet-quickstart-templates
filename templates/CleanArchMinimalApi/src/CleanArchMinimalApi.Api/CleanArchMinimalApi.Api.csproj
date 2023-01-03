@@ -1,8 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
+    <PackageReference Include="Carter" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchMinimalApi.Application\CleanArchMinimalApi.Application.csproj" />
+    <ProjectReference Include="..\CleanArchMinimalApi.Domain\CleanArchMinimalApi.Domain.csproj" />
+    <ProjectReference Include="..\CleanArchMinimalApi.Infrastructure\CleanArchMinimalApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\CleanArchMinimalApi.Presentation\CleanArchMinimalApi.Presentation.csproj" />
   </ItemGroup>
 
 </Project>
