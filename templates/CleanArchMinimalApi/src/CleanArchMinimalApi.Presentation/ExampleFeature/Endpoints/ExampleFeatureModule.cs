@@ -1,5 +1,4 @@
-﻿using Carter;
-using CleanArchMinimalApi.Application.ExampleFeature.Get;
+﻿using CleanArchMinimalApi.Application.ExampleFeature.Get;
 using CleanArchMinimalApi.Presentation.ExampleFeature.Requests;
 using CleanArchMinimalApi.Presentation.Shared.Extensions;
 using Microsoft.AspNetCore.Routing;

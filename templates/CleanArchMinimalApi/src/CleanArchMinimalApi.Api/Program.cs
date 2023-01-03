@@ -1,6 +1,4 @@
-﻿using Carter;
-using CleanArchMinimalApi.Application;
-using MediatR;
+﻿using CleanArchMinimalApi.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +6,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddCarter();
-builder.Services.AddMediatR(AssemblyReference.Instance);
+builder.Services.AddMediatR(ApplicationAssembly.Instance);
 
 var app = builder.Build();
 
