@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using CleanArchMinimalApi.Application.Abstractions;
+using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -9,48 +10,38 @@ namespace CleanArchMinimalApi.Presentation.Shared.Extensions;
 internal static class EndpointRouteBuilderExtensions
 {
 
-    internal static IEndpointRouteBuilder MediateGet<TRequest, TQuery, TResponse>(
+    internal static RouteHandlerBuilder MediateGet<TRequest, TQuery, TResponse>(
         this IEndpointRouteBuilder app,
-        string route) where TQuery : IRequest<TResponse>
+        string route) where TQuery : IQuery<TResponse>
     {
-        app.MapGet(route, async (IMediator mediator, [AsParameters] TRequest request) => await mediator.Send(request!.Adapt<TQuery>()));
-
-        return app;
+        return app.MapGet(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TQuery>()));
     }
 
-    internal static IEndpointRouteBuilder MediatePost<TRequest, TCommand, TResponse>(
+    internal static RouteHandlerBuilder MediatePost<TRequest, TCommand, TResponse>(
         this IEndpointRouteBuilder app,
-        string route) where TCommand : IRequest<TResponse>
+        string route) where TCommand : ICommand<TResponse>
     {
-        app.MapPost(route, async (IMediator mediator, [AsParameters] TRequest request) => await mediator.Send(request!.Adapt<TCommand>()));
-
-        return app;
+        return app.MapPost(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TCommand>()));
     }
 
-    internal static IEndpointRouteBuilder MediatePut<TRequest, TCommand, TResponse>(
+    internal static RouteHandlerBuilder MediatePut<TRequest, TCommand, TResponse>(
         this IEndpointRouteBuilder app,
-        string route) where TCommand : IRequest<TResponse>
+        string route) where TCommand : ICommand<TResponse>
     {
-        app.MapPut(route, async (IMediator mediator, [AsParameters] TRequest request) => await mediator.Send(request!.Adapt<TCommand>()));
-
-        return app;
+        return app.MapPut(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TCommand>()));
     }
 
-    internal static IEndpointRouteBuilder MediatePatch<TRequest, TCommand, TResponse>(
+    internal static RouteHandlerBuilder MediatePatch<TRequest, TCommand, TResponse>(
         this IEndpointRouteBuilder app,
-        string route) where TCommand : IRequest<TResponse>
+        string route) where TCommand : ICommand<TResponse>
     {
-        app.MapPatch(route, async (IMediator mediator, [AsParameters] TRequest request) => await mediator.Send(request!.Adapt<TCommand>()));
-
-        return app;
+        return app.MapPatch(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TCommand>()));
     }
 
-    internal static IEndpointRouteBuilder MediateDelete<TRequest, TCommand, TResponse>(
+    internal static RouteHandlerBuilder MediateDelete<TRequest, TCommand, TResponse>(
         this IEndpointRouteBuilder app,
-        string route) where TCommand : IRequest<TResponse>
+        string route) where TCommand : ICommand<TResponse>
     {
-        app.MapDelete(route, async (IMediator mediator, [AsParameters] TRequest request) => await mediator.Send(request!.Adapt<TCommand>()));
-
-        return app;
+        return app.MapDelete(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TCommand>()));
     }
 }

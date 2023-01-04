@@ -1,4 +1,6 @@
-﻿namespace CleanArchMinimalApi.Domain;
+﻿using System.Reflection;
+
+namespace CleanArchMinimalApi.Domain;
 
 public static class DomainAssembly
 {

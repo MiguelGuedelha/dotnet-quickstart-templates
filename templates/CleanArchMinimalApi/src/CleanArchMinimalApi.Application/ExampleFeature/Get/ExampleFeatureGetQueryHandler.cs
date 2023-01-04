@@ -2,7 +2,7 @@
 
 namespace CleanArchMinimalApi.Application.ExampleFeature.Get;
 
-internal class ExampleFeatureGetQueryHandler : IRequestHandler<ExampleFeatureGetQuery, ExampleFeatureGetQueryResponse>
+internal class ExampleFeaturePostCommandHandler : IRequestHandler<ExampleFeatureGetQuery, ExampleFeatureGetQueryResponse>
 {
     public async Task<ExampleFeatureGetQueryResponse> Handle(ExampleFeatureGetQuery request, CancellationToken cancellationToken)
     {
