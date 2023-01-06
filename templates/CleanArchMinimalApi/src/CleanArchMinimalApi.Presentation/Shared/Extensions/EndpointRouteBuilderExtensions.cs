@@ -14,34 +14,39 @@ internal static class EndpointRouteBuilderExtensions
         this IEndpointRouteBuilder app,
         string route) where TQuery : IQuery<TResponse>
     {
-        return app.MapGet(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TQuery>()));
+        return app.MapGet(route, async (ISender sender, [AsParameters] TRequest request, CancellationToken cancellationToken)
+            => await sender.Send(request!.Adapt<TQuery>(), cancellationToken));
     }
 
     internal static RouteHandlerBuilder MediatePost<TRequest, TCommand, TResponse>(
         this IEndpointRouteBuilder app,
         string route) where TCommand : ICommand<TResponse>
     {
-        return app.MapPost(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TCommand>()));
+        return app.MapPost(route, async (ISender sender, [AsParameters] TRequest request, CancellationToken cancellationToken)
+            => await sender.Send(request!.Adapt<TCommand>(), cancellationToken));
     }
 
     internal static RouteHandlerBuilder MediatePut<TRequest, TCommand, TResponse>(
         this IEndpointRouteBuilder app,
         string route) where TCommand : ICommand<TResponse>
     {
-        return app.MapPut(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TCommand>()));
+        return app.MapPut(route, async (ISender sender, [AsParameters] TRequest request, CancellationToken cancellationToken)
+            => await sender.Send(request!.Adapt<TCommand>(), cancellationToken));
     }
 
     internal static RouteHandlerBuilder MediatePatch<TRequest, TCommand, TResponse>(
         this IEndpointRouteBuilder app,
         string route) where TCommand : ICommand<TResponse>
     {
-        return app.MapPatch(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TCommand>()));
+        return app.MapPatch(route, async (ISender sender, [AsParameters] TRequest request, CancellationToken cancellationToken)
+            => await sender.Send(request!.Adapt<TCommand>(), cancellationToken));
     }
 
     internal static RouteHandlerBuilder MediateDelete<TRequest, TCommand, TResponse>(
         this IEndpointRouteBuilder app,
         string route) where TCommand : ICommand<TResponse>
     {
-        return app.MapDelete(route, async (ISender sender, [AsParameters] TRequest request) => await sender.Send(request!.Adapt<TCommand>()));
+        return app.MapDelete(route, async (ISender sender, [AsParameters] TRequest request, CancellationToken cancellationToken)
+            => await sender.Send(request!.Adapt<TCommand>(), cancellationToken));
     }
 }

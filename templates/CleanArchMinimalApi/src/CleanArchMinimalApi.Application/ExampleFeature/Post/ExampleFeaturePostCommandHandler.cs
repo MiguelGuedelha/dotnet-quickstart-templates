@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using CleanArchMinimalApi.Application.Abstractions;
 
 namespace CleanArchMinimalApi.Application.ExampleFeature.Post;
 
-internal class ExampleFeaturePostCommandHandler : IRequestHandler<ExampleFeaturePostCommand, ExampleFeaturePostCommandResponse>
+internal sealed class ExampleFeaturePostCommandHandler : ICommandHandler<ExampleFeaturePostCommand, ExampleFeaturePostCommandResponse>
 {
 
     public async Task<ExampleFeaturePostCommandResponse> Handle(ExampleFeaturePostCommand command, CancellationToken cancellationToken)

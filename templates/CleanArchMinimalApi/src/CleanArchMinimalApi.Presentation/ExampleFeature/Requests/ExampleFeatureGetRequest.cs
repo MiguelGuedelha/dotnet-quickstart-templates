@@ -1,3 +1,3 @@
 ﻿namespace CleanArchMinimalApi.Presentation.ExampleFeature.Requests;
 
-internal record ExampleFeatureGetRequest(int Id, string Sort);
+internal sealed record ExampleFeatureGetRequest(int Id, string Sort);

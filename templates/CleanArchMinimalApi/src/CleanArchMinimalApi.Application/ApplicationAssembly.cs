@@ -10,7 +10,7 @@ public static class ApplicationAssembly
     {
         get
         {
-            _assembly ??= Assembly.GetAssembly(typeof(ApplicationAssembly))!;
+            _assembly ??= typeof(ApplicationAssembly).Assembly;
             return _assembly;
         }
     }

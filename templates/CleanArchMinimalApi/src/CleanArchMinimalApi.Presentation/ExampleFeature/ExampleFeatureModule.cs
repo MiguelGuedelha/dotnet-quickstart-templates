@@ -6,11 +6,10 @@ using Microsoft.AspNetCore.Routing;
 
 namespace CleanArchMinimalApi.Presentation.ExampleFeature;
 
-public class ExampleFeatureModule : CarterModule
+public sealed class ExampleFeatureModule : CarterModule
 {
     public ExampleFeatureModule() : base("/example-feature")
     {
-
     }
 
     public override void AddRoutes(IEndpointRouteBuilder app)

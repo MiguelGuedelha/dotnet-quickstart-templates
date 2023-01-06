@@ -2,7 +2,7 @@
 
 namespace CleanArchMinimalApi.Presentation.ExampleFeature.Requests;
 
-internal record ExampleFeaturePostRequest
+internal sealed record ExampleFeaturePostRequest
 {
     public int Id { get; init; }
 
@@ -10,4 +10,4 @@ internal record ExampleFeaturePostRequest
     public RequestBody NestedProperty { get; init; }
 };
 
-internal record RequestBody(string Name, string Sort);
+internal sealed record RequestBody(string Name, string Sort);

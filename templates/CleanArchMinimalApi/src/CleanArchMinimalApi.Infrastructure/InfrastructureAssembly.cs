@@ -10,7 +10,7 @@ public static class InfrastructureAssembly
     {
         get
         {
-            _assembly ??= Assembly.GetAssembly(typeof(InfrastructureAssembly))!;
+            _assembly ??= typeof(InfrastructureAssembly).Assembly;
             return _assembly;
         }
     }

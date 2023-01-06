@@ -15,6 +15,8 @@ This is an opinionated batteries included template
 
 ### Features
 
+- Central package versioning management
+- Editorconfig for standardised styling
 - CQRS enabled with abstractions in front of Mediatr
 - Easy to setup and register Minimal API modules through Carter
   - Straightforward mediation of requests with Mediate[HTTPVerb] extensions methods

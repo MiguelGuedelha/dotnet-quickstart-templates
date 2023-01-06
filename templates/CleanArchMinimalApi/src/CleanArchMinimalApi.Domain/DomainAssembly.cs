@@ -10,7 +10,7 @@ public static class DomainAssembly
     {
         get
         {
-            _assembly ??= Assembly.GetAssembly(typeof(DomainAssembly))!;
+            _assembly ??= typeof(DomainAssembly).Assembly;
             return _assembly;
         }
     }
