@@ -25,6 +25,10 @@ indent_size = 4
 insert_final_newline = true
 charset = utf-8-bom
 
+# Program.cs
+[Program.cs]
+dotnet_diagnostic.CA1852.severity = none
+
 ###############################
 # .NET Coding Conventions     #
 ###############################
@@ -82,6 +86,7 @@ dotnet_style_namespace_match_folder = true:suggestion
 dotnet_style_allow_multiple_blank_lines_experimental = true:warning
 dotnet_style_allow_statement_immediately_after_block_experimental = true:warning
 dotnet_code_quality_unused_parameters = all:suggestion
+dotnet_analyzer_diagnostic.category-Performance.severity = warning
 
 ###############################
 # C# Coding Conventions       #

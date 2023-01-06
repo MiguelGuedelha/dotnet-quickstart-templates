@@ -1,12 +1,13 @@
-﻿using CleanArchMinimalApi.Application;
+﻿using CleanArchMinimalApi.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCarter();
-builder.Services.AddMediatR(ApplicationAssembly.Instance);
+builder.Services.AddPresentationServices();
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices();
 
 var app = builder.Build();
 
@@ -19,6 +20,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapCarter();
+app.UsePresentationServices();
+app.UseApplicationServices();
+app.UseInfrastructureServices();
 
 app.Run();

@@ -1,12 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   
   <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
     <PackageReference Include="Mapster" />
     <PackageReference Include="MediatR" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\CleanArchMinimalApi.Domain\CleanArchMinimalApi.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>
