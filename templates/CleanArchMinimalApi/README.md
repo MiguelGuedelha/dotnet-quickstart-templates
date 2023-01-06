@@ -2,7 +2,7 @@
 
 Quick start template for a .NET 7 Minimal API solution that follows Clean Architecture
 
-This is an opinionated batteries included template
+This is a very opinionated, batteries included template
 
 ## What is included in the template
 
@@ -17,8 +17,9 @@ This is an opinionated batteries included template
 
 - Central package versioning management
 - Editorconfig for standardised styling
-- CQRS enabled with abstractions in front of Mediatr
+- CQRS enabled with abstractions in front of MediatR
+  - Validation injected into pipeline
+- Global exception/error handling middleware
 - Easy to setup and register Minimal API modules through Carter
-  - Straightforward mediation of requests with Mediate[HTTPVerb] extensions methods
-  - Thin Minimal API endpoints (logic starts inside the Mediatr handlers)
-- Feature folder structure inside each layer for vertical slicing
+  - Straightforward mediation of requests with Mediate[HTTPVerb]<TRequest, TCommand|TQuery, TResponse> extensions methods
+  - Thin Minimal API endpoints (logic starts inside the MediatR handlers)
