@@ -32,9 +32,6 @@ jobs:
       # Use ${{ steps.version.outputs.version }} to get current version
       - name: Release Version
         run: echo ${{ steps.version.outputs.version }}
-        
-      - name: Build Number
-        run: echo ${{ github.run_number }}
           
       - name: Setup .NET
         uses: actions/setup-dotnet@v3.0.3
@@ -42,4 +39,4 @@ jobs:
           dotnet-version: 7.x
           
       - name: Run pack
-        run: dotnet pack -p:Version=${{ steps.version.outputs.version }}.${{ github.run_number }}
+        run: dotnet pack -p:PackageVersion=${{ steps.version.outputs.version }}.${{ github.run_number }}
