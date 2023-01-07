@@ -77,4 +77,4 @@ jobs:
         run: dotnet pack -p:PackageVersion=${{ steps.gitversion.outputs.majorMinorPatch }} -o package/
 
       - name: dotnet nuget push
-        run: dotnet nuget push package/*.nupkg -k $ {{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push package/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
