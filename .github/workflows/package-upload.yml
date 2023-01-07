@@ -65,15 +65,15 @@ jobs:
           echo "UncommittedChanges: ${{ steps.gitversion.outputs.uncommittedChanges }}"
           echo "CommitDate: ${{ steps.gitversion.outputs.commitDate }}"
           
-      #- name: Setup .NET
-      #  uses: actions/setup-dotnet@v3.0.3
-      #  with:
-      #    dotnet-version: 7.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3.0.3
+        with:
+          dotnet-version: 7.x
           
       # Use ${{ steps.version.outputs.version }} to get current version
       # Use ${{ github.run_number }} if you want the pipeline build number
-      #- name: dotnet pack
-      #  run: dotnet pack -p:PackageVersion=${{ steps.version.outputs.version }} -o package/
+      - name: dotnet pack
+        run: dotnet pack -p:PackageVersion=${{ steps.gitversion.outputs.majorMinorPatch }} -o package/
         
-      #- name: dotnet nuget push
-      #  run: dotnet nuget push package/*.nupkg -k $ {{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      - name: dotnet nuget push
+        run: dotnet nuget push package/*.nupkg -k $ {{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
