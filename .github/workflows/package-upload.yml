@@ -34,7 +34,7 @@ jobs:
         run: echo ${{ steps.version.outputs.version }}
         
       - name: Build Number
-        run: echo ${{ env.GITHUB_RUN_NUMBER }}
+        run: echo ${{ github.GITHUB_RUN_NUMBER }}
           
       - name: Setup .NET
         uses: actions/setup-dotnet@v3.0.3
@@ -42,4 +42,4 @@ jobs:
           dotnet-version: 7.x
           
       - name: Run pack
-        run: dotnet pack -p:Version=${{ steps.version.outputs.version }}.${{ env.GITHUB_RUN_NUMBER }}
+        run: dotnet pack -p:Version=${{ steps.version.outputs.version }}.${{ github.GITHUB_RUN_NUMBER }}
