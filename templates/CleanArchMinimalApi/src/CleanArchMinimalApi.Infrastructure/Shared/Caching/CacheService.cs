@@ -61,10 +61,10 @@ internal sealed class CacheService : ICacheService
 
     public async Task ClearPattern(string pattern, CancellationToken cancellationToken)
     {
-        var keys = _servers.SelectMany(server => server.Keys(pattern: pattern));
+        var keys = _servers.SelectMany(server => server.Keys(pattern: pattern, pageSize: 1000));
         foreach (var key in keys)
         {
-            await RemoveAsync(key, cancellationToken);
+            await RemoveAsync(key!, cancellationToken);
         }
     }
 

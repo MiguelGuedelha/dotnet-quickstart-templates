@@ -15,6 +15,11 @@ internal class BaseValidationBehavior<TRequest, TResponse>
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
+        if (cancellationToken.IsCancellationRequested)
+        {
+            return await Task.FromCanceled<TResponse>(cancellationToken);
+        }
+
         if (!_validators.Any())
         {
             return await next();
