@@ -10,4 +10,8 @@
     <ProjectReference Include="..\CleanArchMinimalApi.Application\CleanArchMinimalApi.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
 </Project>
