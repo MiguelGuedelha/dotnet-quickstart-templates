@@ -1,4 +1,5 @@
-﻿using CleanArchMinimalApi.Application.Abstractions;
+﻿using CleanArchMinimalApi.Application.Abstractions.Command;
+using CleanArchMinimalApi.Application.Abstractions.Query;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Builder;

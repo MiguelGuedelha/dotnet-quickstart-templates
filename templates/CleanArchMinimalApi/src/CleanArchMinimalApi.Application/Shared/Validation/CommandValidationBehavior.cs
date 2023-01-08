@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Abstractions;
+﻿using CleanArchMinimalApi.Application.Abstractions.Command;
 using FluentValidation;
 using MediatR;
 

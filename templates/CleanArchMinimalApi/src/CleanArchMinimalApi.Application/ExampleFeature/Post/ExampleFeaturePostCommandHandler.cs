@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Abstractions;
+﻿using CleanArchMinimalApi.Application.Abstractions.Command;
 
 namespace CleanArchMinimalApi.Application.ExampleFeature.Post;
 

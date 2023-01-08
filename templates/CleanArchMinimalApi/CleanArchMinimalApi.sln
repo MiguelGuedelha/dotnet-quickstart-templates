@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMinimalApi.Domain.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMinimalApi.Application.Tests.Unit", "tests\CleanArchMinimalApi.Application.Tests.Unit\CleanArchMinimalApi.Application.Tests.Unit.csproj", "{00EAF5F8-4741-43B8-84C3-AD952BC989B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Presentation", "src\CleanArchMinimalApi.Presentation\CleanArchMinimalApi.Presentation.csproj", "{1E20B772-F138-488B-95D1-B0B1D4782BDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMinimalApi.Presentation", "src\CleanArchMinimalApi.Presentation\CleanArchMinimalApi.Presentation.csproj", "{1E20B772-F138-488B-95D1-B0B1D4782BDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Shared", "CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj", "{178C9D38-6121-4A53-AA32-D13B6F0113CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{1E20B772-F138-488B-95D1-B0B1D4782BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E20B772-F138-488B-95D1-B0B1D4782BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E20B772-F138-488B-95D1-B0B1D4782BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{178C9D38-6121-4A53-AA32-D13B6F0113CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{178C9D38-6121-4A53-AA32-D13B6F0113CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{178C9D38-6121-4A53-AA32-D13B6F0113CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{178C9D38-6121-4A53-AA32-D13B6F0113CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{2F2ECFDE-5CAB-4B31-A112-707E7C740E02} = {395D9CDA-13EC-4D43-AF82-E40A8BABE995}
 		{00EAF5F8-4741-43B8-84C3-AD952BC989B1} = {395D9CDA-13EC-4D43-AF82-E40A8BABE995}
 		{1E20B772-F138-488B-95D1-B0B1D4782BDB} = {918BBC0B-14D4-4707-8F32-E67FAE68B9DB}
+		{178C9D38-6121-4A53-AA32-D13B6F0113CF} = {918BBC0B-14D4-4707-8F32-E67FAE68B9DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2B447ED-0E66-4846-8365-F9E7C93413A9}

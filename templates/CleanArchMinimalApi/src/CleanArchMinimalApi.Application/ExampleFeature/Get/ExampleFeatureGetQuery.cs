@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Abstractions;
+﻿using CleanArchMinimalApi.Application.Abstractions.Query;
 
 namespace CleanArchMinimalApi.Application.ExampleFeature.Get;
 
