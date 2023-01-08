@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0</PackageVersion>
     <PackageId>MiguelGuedelha.Quickstart.Templates</PackageId>
     <Title>Quickstart Templates</Title>
     <Authors>Miguel Guedelha</Authors>
     <Description>Helpful quickstart templates for bootstrapping new dotnet projects</Description>
     <PackageTags>dotnet-new;templates;miguelguedelha;bootstrap;quickstart</PackageTags>
+    <RepositoryUrl>https://github.com/MiguelGuedelha/dotnet-quickstart-templates.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
 
     <TargetFramework>net7.0</TargetFramework>
 
