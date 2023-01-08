@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\..\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj" />
+    <ProjectReference Include="..\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj" />
     <ProjectReference Include="..\CleanArchMinimalApi.Application\CleanArchMinimalApi.Application.csproj" />
   </ItemGroup>
 
@@ -13,5 +13,5 @@
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" />
     <PackageReference Include="StackExchange.Redis" />
   </ItemGroup>
-  
+
 </Project>
