@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj" />
+    <ProjectReference Include="..\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj" />
     <ProjectReference Include="..\CleanArchMinimalApi.Domain\CleanArchMinimalApi.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
