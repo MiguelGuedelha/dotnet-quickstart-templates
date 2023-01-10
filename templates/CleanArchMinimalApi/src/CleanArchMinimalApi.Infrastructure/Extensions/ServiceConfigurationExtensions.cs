@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
 
-namespace CleanArchMinimalApi.Application.Extensions;
+namespace CleanArchMinimalApi.Infrastructure.Extensions;
 
 public static class ServiceConfigurationExtensions
 {

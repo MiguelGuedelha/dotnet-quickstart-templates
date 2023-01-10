@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CleanArchMinimalApi.Application.Extensions;
+namespace CleanArchMinimalApi.Presentation.Extensions;
 
 public static class ServiceConfigurationExtensions
 {

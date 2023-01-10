@@ -1,4 +1,4 @@
-﻿namespace CleanArchMinimalApi.Application.Extensions;
+﻿namespace CleanArchMinimalApi.Domain.Extensions;
 
 public static class ServiceConfigurationExtensions
 {
