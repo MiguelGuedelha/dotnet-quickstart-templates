@@ -15,4 +15,8 @@
     <PackageReference Include="MediatR" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ExampleFeature\Responses" />
+  </ItemGroup>
+
 </Project>

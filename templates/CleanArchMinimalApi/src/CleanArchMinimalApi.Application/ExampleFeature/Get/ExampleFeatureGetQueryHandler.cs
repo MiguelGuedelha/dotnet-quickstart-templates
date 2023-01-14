@@ -17,11 +17,9 @@ public sealed class ExampleFeatureGetQueryHandler : IQueryHandler<ExampleFeature
 
     public async Task<ExampleFeatureGetQueryResponse> Handle(ExampleFeatureGetQuery request, CancellationToken cancellationToken)
     {
-        ExampleFeatureGetQueryResponse? response;
-
         var key = _cacheKeyService.ExampleCacheKey(nameof(ExampleFeatureGetQueryHandler), request.Id, request.Sort);
 
-        response = await _cacheService.GetAsync<ExampleFeatureGetQueryResponse>(key, cancellationToken);
+        var response = await _cacheService.GetAsync<ExampleFeatureGetQueryResponse>(key, cancellationToken);
 
         if (response is not null)
         {
