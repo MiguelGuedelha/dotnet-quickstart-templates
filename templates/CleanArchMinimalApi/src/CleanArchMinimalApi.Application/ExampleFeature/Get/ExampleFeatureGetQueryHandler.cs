@@ -7,9 +7,11 @@ namespace CleanArchMinimalApi.Application.ExampleFeature.Get;
 public sealed class ExampleFeatureGetQueryHandler : IQueryHandler<ExampleFeatureGetQuery, ExampleFeatureGetQueryResponse>
 {
     private readonly ICacheService _cacheService;
+    private readonly ICacheKeyService _cacheKeyService;
 
-    public ExampleFeatureGetQueryHandler(ICacheService cacheService)
+    public ExampleFeatureGetQueryHandler(ICacheService cacheService, ICacheKeyService cacheKeyService)
     {
+        ArgumentHelper.Initialise(cacheKeyService, out _cacheKeyService);
         ArgumentHelper.Initialise(cacheService, out _cacheService);
     }
 
@@ -17,7 +19,7 @@ public sealed class ExampleFeatureGetQueryHandler : IQueryHandler<ExampleFeature
     {
         ExampleFeatureGetQueryResponse? response;
 
-        var key = $"{nameof(ExampleFeatureGetQueryHandler)}:{request.Id}_{request.Sort}";
+        var key = _cacheKeyService.ExampleCacheKey(nameof(ExampleFeatureGetQueryHandler), request.Id, request.Sort);
 
         response = await _cacheService.GetAsync<ExampleFeatureGetQueryResponse>(key, cancellationToken);
 

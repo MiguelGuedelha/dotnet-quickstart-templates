@@ -8,7 +8,6 @@ internal sealed class CommandValidationBehavior<TRequest, TResponse>
     : BaseValidationBehavior<TRequest, TResponse>, IPipelineBehavior<TRequest, TResponse>
     where TRequest : ICommand<TResponse>
 {
-
     public CommandValidationBehavior(IEnumerable<IValidator<TRequest>> validators) : base(validators)
     {
     }

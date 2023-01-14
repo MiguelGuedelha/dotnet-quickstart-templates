@@ -21,9 +21,11 @@ public static class ServiceConfigurationExtensions
             options.ConnectionMultiplexerFactory = () => Task.FromResult(connMultiplexer as IConnectionMultiplexer);
         });
 
-        services.AddTransient<ICacheService, CacheService>();
+        services.AddScoped<ICacheService, CacheService>();
+        services.AddScoped<ICacheKeyService, CacheKeyService>();
 
         services.Configure<CacheOptions>(configuration.GetSection(CacheOptions.Region));
+        services.Configure<CacheKeyOptions>(configuration.GetSection(CacheKeyOptions.Region));
 
         return services;
     }
