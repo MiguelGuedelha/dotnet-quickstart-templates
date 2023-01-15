@@ -16,7 +16,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ExampleFeature\Responses" />
+    <Compile Remove="ExampleFeature\Responses\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ExampleFeature\Responses\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ExampleFeature\Responses\**" />
   </ItemGroup>
 
 </Project>

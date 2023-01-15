@@ -8,6 +8,6 @@ internal sealed class ExampleFeaturePostCommandHandler : ICommandHandler<Example
     public async Task<ExampleFeaturePostCommandResponse> Handle(ExampleFeaturePostCommand command, CancellationToken cancellationToken)
     {
         await Task.Delay(0, cancellationToken);
-        return new ExampleFeaturePostCommandResponse(command.Id, command.NestedPropertyName);
+        return new ExampleFeaturePostCommandResponse(command.Id, command.BodyName);
     }
 }
