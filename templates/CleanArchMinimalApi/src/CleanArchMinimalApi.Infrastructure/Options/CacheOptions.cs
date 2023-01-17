@@ -1,4 +1,5 @@
 ﻿namespace CleanArchMinimalApi.Infrastructure.Options;
+
 internal sealed class CacheOptions
 {
     public const string Region = "Cache";

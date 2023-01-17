@@ -28,6 +28,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
             await HandleExceptionAsync(context, e);
         }
     }
+
     private static async Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
     {
         var statusCode = GetStatusCode(exception);
@@ -36,9 +37,9 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
 
         var response = new
         {
-            Title = statusName,
-            Status = statusCode,
-            Detail = exception.Message,
+            Title = statusName, 
+            Status = statusCode, 
+            Detail = exception.Message, 
             Errors = GetErrors(exception)
         };
 
@@ -47,6 +48,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
 
         await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response));
     }
+
     private static int GetStatusCode(Exception exception) =>
         exception switch
         {
@@ -61,9 +63,11 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         {
             errors = validationException.Errors;
         }
+
         return errors;
     }
 
+    //Bug or error possibly in Roslyn, see https://github.com/dotnet/docs/issues/27471
     [GeneratedRegex("(?<!^)(?=[A-Z])")]
     private static partial Regex CamelCase();
 }

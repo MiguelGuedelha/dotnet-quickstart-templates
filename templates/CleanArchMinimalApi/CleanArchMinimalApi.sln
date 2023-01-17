@@ -11,6 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "001 Solution Items", "001 S
 		Directory.Packages.props = Directory.Packages.props
 		nuget.config = nuget.config
 		README.md = README.md
+		src\CleanArchMinimalApi.Api\Dockerfile = src\CleanArchMinimalApi.Api\Dockerfile
+		src\CleanArchMinimalApi.Api\.dockerignore = src\CleanArchMinimalApi.Api\.dockerignore
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "002 src", "002 src", "{918BBC0B-14D4-4707-8F32-E67FAE68B9DB}"
