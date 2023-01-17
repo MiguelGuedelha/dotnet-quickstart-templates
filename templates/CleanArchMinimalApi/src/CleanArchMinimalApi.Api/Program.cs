@@ -1,4 +1,6 @@
 ﻿using CleanArchMinimalApi.Application.Extensions;
+using CleanArchMinimalApi.Infrastructure.Extensions;
+using CleanArchMinimalApi.Presentation.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;

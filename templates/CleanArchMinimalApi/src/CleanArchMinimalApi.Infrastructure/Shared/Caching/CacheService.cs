@@ -11,10 +11,11 @@ namespace CleanArchMinimalApi.Infrastructure.Shared.Caching;
 internal sealed class CacheService : ICacheService
 {
     private readonly IDistributedCache _distributedCache;
-    private readonly IEnumerable<IServer> _servers;
     private readonly DistributedCacheEntryOptions _insertionOptions;
+    private readonly IEnumerable<IServer> _servers;
 
-    public CacheService(IDistributedCache distributedCache, IConnectionMultiplexer multiplexer, IOptions<CacheOptions> options)
+    public CacheService(IDistributedCache distributedCache, IConnectionMultiplexer multiplexer,
+        IOptions<CacheOptions> options)
     {
         ArgumentHelper.Initialise(distributedCache, out _distributedCache);
         ArgumentHelper.Initialise(multiplexer.GetEndPoints().Select(x => multiplexer.GetServer(x)), out _servers);
@@ -23,15 +24,14 @@ internal sealed class CacheService : ICacheService
         _insertionOptions = new DistributedCacheEntryOptions
         {
             AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(cacheOptions.AbsoluteExpiration),
-            SlidingExpiration = TimeSpan.FromSeconds(cacheOptions.SlidingExpiration),
+            SlidingExpiration = TimeSpan.FromSeconds(cacheOptions.SlidingExpiration)
         };
     }
 
     public async Task SetAsync<T>(string key, T value, CancellationToken cancellationToken)
-        where T : class
-    {
-        await _distributedCache.SetStringAsync(key, JsonSerializer.Serialize(value), _insertionOptions, cancellationToken);
-    }
+        where T : class =>
+        await _distributedCache.SetStringAsync(key, JsonSerializer.Serialize(value), _insertionOptions,
+            cancellationToken);
 
     public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken)
         where T : class
@@ -54,10 +54,8 @@ internal sealed class CacheService : ICacheService
         }
     }
 
-    public async Task RemoveAsync(string key, CancellationToken cancellationToken)
-    {
+    public async Task RemoveAsync(string key, CancellationToken cancellationToken) =>
         await _distributedCache.RemoveAsync(key, cancellationToken);
-    }
 
     public async Task ClearPattern(string pattern, CancellationToken cancellationToken)
     {
@@ -68,8 +66,5 @@ internal sealed class CacheService : ICacheService
         }
     }
 
-    public async Task ClearAll(CancellationToken cancellationToken)
-    {
-        await ClearPattern("*", cancellationToken);
-    }
+    public async Task ClearAll(CancellationToken cancellationToken) => await ClearPattern("*", cancellationToken);
 }

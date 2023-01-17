@@ -15,6 +15,11 @@
     <PackageReference Include="Mapster" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Todo\Queries" />
   </ItemGroup>
 
 </Project>

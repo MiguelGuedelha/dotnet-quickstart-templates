@@ -2,6 +2,6 @@
 
 namespace CleanArchMinimalApi.Application.Abstractions.Query;
 
-public interface IQuery<TResponse> : IRequest<TResponse>
+public interface IQuery<out TResponse> : IRequest<TResponse>
 {
 }

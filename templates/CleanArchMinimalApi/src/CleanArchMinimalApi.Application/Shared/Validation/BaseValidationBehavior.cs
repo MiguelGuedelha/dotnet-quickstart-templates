@@ -8,12 +8,10 @@ internal class BaseValidationBehavior<TRequest, TResponse>
 {
     private readonly IEnumerable<IValidator<TRequest>> _validators;
 
-    public BaseValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
-    {
-        _validators = validators;
-    }
+    protected BaseValidationBehavior(IEnumerable<IValidator<TRequest>> validators) => _validators = validators;
 
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    protected async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
+        CancellationToken cancellationToken)
     {
         if (cancellationToken.IsCancellationRequested)
         {
@@ -36,8 +34,7 @@ internal class BaseValidationBehavior<TRequest, TResponse>
                 x => x.ErrorMessage,
                 (propertyName, errorMessages) => new
                 {
-                    Key = propertyName,
-                    Values = errorMessages.Distinct().ToArray()
+                    Key = propertyName, Values = errorMessages.Distinct().ToArray()
                 })
             .ToDictionary(x => x.Key, x => x.Values);
 
