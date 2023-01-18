@@ -11,7 +11,7 @@ This is a very opinionated, batteries included template
 - Mediatr
 - StackExchange.Redis
 - Fluent Validation
-- Entity Framework (In-Memory DB)
+- Entity Framework (In-Memory DB -> To be switched out to preferred DBMS)
 - Carter
 - XUnit
 
