@@ -1,9 +1,9 @@
 ﻿using CleanArchMinimalApi.Application.Features.Todo.Commands;
-using CleanArchMinimalApi.Application.Features.Todo.Responses;
+using CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Services;
 
 public interface ITodoCommandService
 {
-    Task<CreateTodoResponse> CreateTodo(CreateTodoCommand command, CancellationToken cancellationToken);
+    Task<CreateTodoCommandResult> CreateTodo(CreateTodoCommand command, CancellationToken cancellationToken);
 }

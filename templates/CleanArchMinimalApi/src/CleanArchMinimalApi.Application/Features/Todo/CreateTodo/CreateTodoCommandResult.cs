@@ -1,17 +1,17 @@
 ﻿using CleanArchMinimalApi.Domain.Features.Todo;
 
-namespace CleanArchMinimalApi.Application.Features.Todo.Responses;
+namespace CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
 
-public record CreateTodoResponse
+public record CreateTodoCommandResult
 {
     public required Guid Id { get; init; }
     public required string Title { get; init; }
     public required string Note { get; init; }
     public required bool Done { get; init; }
 
-    public static CreateTodoResponse MapFromTodoItem(TodoItem item)
+    public static CreateTodoCommandResult MapFromTodoItem(TodoItem item)
     {
-        return new CreateTodoResponse
+        return new CreateTodoCommandResult
         {
             Id = item.Id,
             Title = item.Title,

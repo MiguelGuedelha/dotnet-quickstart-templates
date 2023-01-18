@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using CleanArchMinimalApi.Application.Shared.Exceptions;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,11 @@ namespace CleanArchMinimalApi.Application.Shared.Middleware;
 
 internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
 {
+    private static readonly JsonSerializerOptions _options = new()
+    {
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
+    };
+    
     private readonly ILogger<ExceptionHandlingMiddleware> _logger;
 
     public ExceptionHandlingMiddleware(ILogger<ExceptionHandlingMiddleware> logger)
@@ -34,7 +40,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         var statusCode = GetStatusCode(exception);
 
         var statusName = string.Join(" ", CamelCase().Split(((HttpStatusCode)statusCode).ToString()));
-
+        
         var response = new
         {
             Title = statusName, 
@@ -46,13 +52,14 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         httpContext.Response.ContentType = "application/json";
         httpContext.Response.StatusCode = statusCode;
 
-        await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response));
+        await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response, _options));
     }
 
     private static int GetStatusCode(Exception exception) =>
         exception switch
         {
             ValidationException => StatusCodes.Status400BadRequest,
+            NotFoundException => StatusCodes.Status404NotFound,
             _ => StatusCodes.Status500InternalServerError
         };
 

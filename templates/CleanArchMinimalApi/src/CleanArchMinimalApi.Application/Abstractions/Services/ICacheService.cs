@@ -1,4 +1,4 @@
-﻿namespace CleanArchMinimalApi.Application.Abstractions.Caching;
+﻿namespace CleanArchMinimalApi.Application.Abstractions.Services;
 
 public interface ICacheService
 {

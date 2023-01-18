@@ -8,17 +8,16 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CleanArchMinimalApi.Application.Extensions;
+namespace CleanArchMinimalApi.Application;
 
-public static class ServiceConfigurationExtensions
+public static class ServiceConfiguration
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        services.AddPackageServices();
-        services.AddMiddleware();
-        services.AddLayerServices();
-
-        return services;
+        return services
+            .AddPackageServices()
+            .AddMiddleware()
+            .AddLayerServices();
     }
 
     private static IServiceCollection AddPackageServices(this IServiceCollection services)
@@ -41,9 +40,11 @@ public static class ServiceConfigurationExtensions
 
     private static IServiceCollection AddLayerServices(this IServiceCollection services)
     {
-        services.AddScoped<ITodoCommandService, TodoCommandService>();
-        services.AddTransient<IDateTimeService, DateTimeService>();
-        
+        services
+            .AddScoped<ITodoCommandService, TodoCommandService>()
+            .AddScoped<ITodoQueryService, TodoQueryService>()
+            .AddTransient<IDateTimeService, DateTimeService>();
+
         return services;
     }
 

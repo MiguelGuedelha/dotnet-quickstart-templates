@@ -1,5 +1,5 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Persistence;
-using CleanArchMinimalApi.Domain.Features.Todo;
+﻿using CleanArchMinimalApi.Domain.Features.Todo;
+using CleanArchMinimalApi.Infrastructure.Abstractions.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchMinimalApi.Infrastructure.Shared.Persistence;

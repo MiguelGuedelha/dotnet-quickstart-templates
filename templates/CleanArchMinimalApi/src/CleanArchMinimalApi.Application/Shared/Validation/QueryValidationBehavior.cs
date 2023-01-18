@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Query;
+﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
 using FluentValidation;
 using MediatR;
 
@@ -12,6 +12,8 @@ internal sealed class QueryValidationBehavior<TRequest, TResponse>
     {
     }
 
-    public new async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
-        CancellationToken cancellationToken) => await base.Handle(request, next, cancellationToken);
+    public new async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    {
+        return await base.Handle(request, next, cancellationToken);
+    }
 }
