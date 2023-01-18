@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using CleanArchMinimalApi.Application.Abstractions.Caching;
+using CleanArchMinimalApi.Application.Abstractions.Services;
 using CleanArchMinimalApi.Infrastructure.Options;
 using CleanArchMinimalApi.Shared.Helpers;
 using Microsoft.Extensions.Caching.Distributed;

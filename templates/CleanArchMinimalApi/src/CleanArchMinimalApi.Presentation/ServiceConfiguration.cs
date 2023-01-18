@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CleanArchMinimalApi.Presentation.Extensions;
+namespace CleanArchMinimalApi.Presentation;
 
-public static class ServiceConfigurationExtensions
+public static class ServiceConfiguration
 {
     public static IServiceCollection AddPresentationServices(this IServiceCollection services)
     {
