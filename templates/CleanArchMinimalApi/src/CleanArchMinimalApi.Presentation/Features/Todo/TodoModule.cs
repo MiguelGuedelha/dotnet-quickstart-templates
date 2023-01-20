@@ -10,7 +10,7 @@ namespace CleanArchMinimalApi.Presentation.Features.Todo;
 public class TodoModule : CarterModule
 {
     private const string GetTodoEndpointName = "GetTodo";
-    
+
     public TodoModule() : base("/todo")
     {
     }
@@ -22,15 +22,17 @@ public class TodoModule : CarterModule
             .WithName(GetTodoEndpointName);
     }
 
-    static async Task<IResult> CreateTodo(ISender sender, [AsParameters] CreateTodoRequest request, CancellationToken cancellationToken)
+    private static async Task<IResult> CreateTodo(ISender sender, [AsParameters] CreateTodoRequest request,
+        CancellationToken cancellationToken)
     {
         var command = CreateTodoRequest.MapToCommand(request);
         var result = await sender.Send(command, cancellationToken);
         var response = CreateTodoResponse.MapFromCommandResponse(result);
-        return Results.CreatedAtRoute(GetTodoEndpointName, new {response.Id}, response);
+        return Results.CreatedAtRoute(GetTodoEndpointName, new { response.Id }, response);
     }
 
-    static async Task<IResult> GetTodo(ISender sender, [AsParameters] GetTodoRequest request, CancellationToken cancellationToken)
+    private static async Task<IResult> GetTodo(ISender sender, [AsParameters] GetTodoRequest request,
+        CancellationToken cancellationToken)
     {
         var query = GetTodoRequest.MapToCommand(request);
         var result = await sender.Send(query, cancellationToken);

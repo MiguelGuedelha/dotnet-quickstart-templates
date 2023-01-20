@@ -5,16 +5,11 @@ namespace CleanArchMinimalApi.Presentation.Features.Todo.CreateTodo;
 
 internal sealed record CreateTodoRequest
 {
-    [FromBody] 
-    public required CreateTodoRequestBody Body { get; init; }
+    [FromBody] public required CreateTodoRequestBody Body { get; init; }
 
     public static CreateTodoCommand MapToCommand(CreateTodoRequest request)
     {
-        return new CreateTodoCommand
-        {
-            Note = request.Body.Note,
-            Title = request.Body.Title
-        };
+        return new() { Note = request.Body.Note, Title = request.Body.Title };
     }
 }
 

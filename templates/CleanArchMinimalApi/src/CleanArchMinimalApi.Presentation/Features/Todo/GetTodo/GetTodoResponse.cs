@@ -10,11 +10,6 @@ public record GetTodoResponse
 
     public static GetTodoResponse MapFromQueryResponse(GetTodoQueryResult result)
     {
-        return new GetTodoResponse
-        {
-            Title = result.Title,
-            Note = result.Note,
-            Done = result.Done
-        };
+        return new() { Title = result.Title, Note = result.Note, Done = result.Done };
     }
 }

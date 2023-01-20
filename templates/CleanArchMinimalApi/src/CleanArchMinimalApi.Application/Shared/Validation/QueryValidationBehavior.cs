@@ -12,7 +12,8 @@ internal sealed class QueryValidationBehavior<TRequest, TResponse>
     {
     }
 
-    public new async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    public new async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
+        CancellationToken cancellationToken)
     {
         return await base.Handle(request, next, cancellationToken);
     }

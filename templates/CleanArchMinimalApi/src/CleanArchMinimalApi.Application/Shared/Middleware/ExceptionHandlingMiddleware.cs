@@ -45,9 +45,9 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
 
         var response = new
         {
-            Title = statusName,
-            Status = statusCode,
-            Detail = exception.Message,
+            Title = statusName, 
+            Status = statusCode, 
+            Detail = exception.Message, 
             Errors = GetErrors(exception)
         };
 
@@ -57,13 +57,15 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response, Options));
     }
 
-    private static int GetStatusCode(Exception exception) =>
-        exception switch
+    private static int GetStatusCode(Exception exception)
+    {
+        return exception switch
         {
             ValidationException => StatusCodes.Status400BadRequest,
             NotFoundException => StatusCodes.Status404NotFound,
             _ => StatusCodes.Status500InternalServerError
         };
+    }
 
     private static IReadOnlyDictionary<string, string[]>? GetErrors(Exception exception)
     {

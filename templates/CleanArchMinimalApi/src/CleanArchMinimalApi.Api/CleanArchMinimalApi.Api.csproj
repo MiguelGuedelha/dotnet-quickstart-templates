@@ -5,16 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArchMinimalApi.Application\CleanArchMinimalApi.Application.csproj" />
-    <ProjectReference Include="..\CleanArchMinimalApi.Domain\CleanArchMinimalApi.Domain.csproj" />
-    <ProjectReference Include="..\CleanArchMinimalApi.Infrastructure\CleanArchMinimalApi.Infrastructure.csproj" />
-    <ProjectReference Include="..\CleanArchMinimalApi.Presentation\CleanArchMinimalApi.Presentation.csproj" />
+    <ProjectReference Include="..\CleanArchMinimalApi.Application\CleanArchMinimalApi.Application.csproj"/>
+    <ProjectReference Include="..\CleanArchMinimalApi.Domain\CleanArchMinimalApi.Domain.csproj"/>
+    <ProjectReference Include="..\CleanArchMinimalApi.Infrastructure\CleanArchMinimalApi.Infrastructure.csproj"/>
+    <ProjectReference Include="..\CleanArchMinimalApi.Presentation\CleanArchMinimalApi.Presentation.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
-    <PackageReference Include="Serilog.AspNetCore" />
-    <PackageReference Include="Swashbuckle.AspNetCore" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+    <PackageReference Include="Serilog.AspNetCore"/>
+    <PackageReference Include="Swashbuckle.AspNetCore"/>
   </ItemGroup>
 
 </Project>

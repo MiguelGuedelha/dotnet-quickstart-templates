@@ -1,6 +1,5 @@
 ﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
 using CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Commands;
 

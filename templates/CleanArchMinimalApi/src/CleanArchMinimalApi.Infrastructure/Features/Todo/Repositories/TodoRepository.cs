@@ -19,9 +19,9 @@ public class TodoRepository : ITodoRepository
     public async Task<bool> CreateTodoItem(TodoItem item, CancellationToken cancellationToken)
     {
         _applicationDbContext.TodoItems.Add(item);
-        
+
         var result = await _applicationDbContext.SaveChangesAsync(cancellationToken);
-        
+
         return result == 1;
     }
 

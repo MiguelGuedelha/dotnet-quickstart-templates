@@ -2,10 +2,10 @@
 
 public class ServiceException<T> : Exception
 {
-    public ServiceException() : base()
+    public ServiceException()
     {
     }
-    
+
     public ServiceException(string message) : base(message)
     {
     }

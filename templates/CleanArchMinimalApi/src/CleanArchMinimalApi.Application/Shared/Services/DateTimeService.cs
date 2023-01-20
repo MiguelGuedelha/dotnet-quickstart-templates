@@ -4,7 +4,13 @@ namespace CleanArchMinimalApi.Application.Shared.Services;
 
 public class DateTimeService : IDateTimeService
 {
-    public DateTime Now() => DateTime.Now;
+    public DateTime Now()
+    {
+        return DateTime.Now;
+    }
 
-    public DateOnly Today() => DateOnly.FromDateTime(DateTime.Today);
+    public DateOnly Today()
+    {
+        return DateOnly.FromDateTime(DateTime.Today);
+    }
 }

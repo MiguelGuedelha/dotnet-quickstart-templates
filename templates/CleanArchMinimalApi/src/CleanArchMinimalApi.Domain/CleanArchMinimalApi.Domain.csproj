@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj" />
+    <ProjectReference Include="..\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj"/>
   </ItemGroup>
 
 </Project>

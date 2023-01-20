@@ -8,7 +8,10 @@ internal class BaseValidationBehavior<TRequest, TResponse>
 {
     private readonly IEnumerable<IValidator<TRequest>> _validators;
 
-    protected BaseValidationBehavior(IEnumerable<IValidator<TRequest>> validators) => _validators = validators;
+    protected BaseValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
+    {
+        _validators = validators;
+    }
 
     protected async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)

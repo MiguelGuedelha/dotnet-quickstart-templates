@@ -21,7 +21,7 @@ internal sealed class CacheService : ICacheService
         ArgumentHelper.Initialise(multiplexer.GetEndPoints().Select(x => multiplexer.GetServer(x)), out _servers);
         ArgumentHelper.Initialise(options.Value, out var cacheOptions);
 
-        _insertionOptions = new DistributedCacheEntryOptions
+        _insertionOptions = new()
         {
             AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(cacheOptions.AbsoluteExpiration),
             SlidingExpiration = TimeSpan.FromSeconds(cacheOptions.SlidingExpiration)
@@ -29,9 +29,11 @@ internal sealed class CacheService : ICacheService
     }
 
     public async Task SetAsync<T>(string key, T value, CancellationToken cancellationToken)
-        where T : class =>
+        where T : class
+    {
         await _distributedCache.SetStringAsync(key, JsonSerializer.Serialize(value), _insertionOptions,
             cancellationToken);
+    }
 
     public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken)
         where T : class
@@ -54,8 +56,10 @@ internal sealed class CacheService : ICacheService
         }
     }
 
-    public async Task RemoveAsync(string key, CancellationToken cancellationToken) =>
+    public async Task RemoveAsync(string key, CancellationToken cancellationToken)
+    {
         await _distributedCache.RemoveAsync(key, cancellationToken);
+    }
 
     public async Task ClearPattern(string pattern, CancellationToken cancellationToken)
     {
@@ -66,5 +70,8 @@ internal sealed class CacheService : ICacheService
         }
     }
 
-    public async Task ClearAll(CancellationToken cancellationToken) => await ClearPattern("*", cancellationToken);
+    public async Task ClearAll(CancellationToken cancellationToken)
+    {
+        await ClearPattern("*", cancellationToken);
+    }
 }
