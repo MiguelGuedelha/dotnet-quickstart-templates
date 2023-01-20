@@ -20,7 +20,7 @@ public class TodoRepository : ITodoRepository
     {
         _applicationDbContext.TodoItems.Add(item);
 
-        var result = await _applicationDbContext.SaveChangesAsync(cancellationToken);
+        var result = await _applicationDbContext.SaveChangesAsync();
 
         return result == 1;
     }
