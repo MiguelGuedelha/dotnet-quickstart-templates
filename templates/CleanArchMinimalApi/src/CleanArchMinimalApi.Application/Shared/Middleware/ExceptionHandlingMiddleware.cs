@@ -14,7 +14,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
     {
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
     };
-    
+
     private readonly ILogger<ExceptionHandlingMiddleware> _logger;
 
     public ExceptionHandlingMiddleware(ILogger<ExceptionHandlingMiddleware> logger)
@@ -30,7 +30,9 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         }
         catch (Exception e)
         {
+#pragma warning disable CA1848 // Use the LoggerMessage delegates
             _logger.LogError(e, e.Message);
+#pragma warning restore CA1848 // Use the LoggerMessage delegates
             await HandleExceptionAsync(context, e);
         }
     }
@@ -40,12 +42,12 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         var statusCode = GetStatusCode(exception);
 
         var statusName = string.Join(" ", CamelCase().Split(((HttpStatusCode)statusCode).ToString()));
-        
+
         var response = new
         {
-            Title = statusName, 
-            Status = statusCode, 
-            Detail = exception.Message, 
+            Title = statusName,
+            Status = statusCode,
+            Detail = exception.Message,
             Errors = GetErrors(exception)
         };
 

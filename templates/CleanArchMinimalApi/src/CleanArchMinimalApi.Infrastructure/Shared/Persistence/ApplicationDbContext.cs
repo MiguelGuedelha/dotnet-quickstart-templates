@@ -9,9 +9,9 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
-    
-    public DbSet<TodoItem> TodoItems { get; set; }
-    
+
+    public required DbSet<TodoItem> TodoItems { get; set; }
+
     public async Task<int> SaveChangesAsync()
     {
         return await base.SaveChangesAsync();
