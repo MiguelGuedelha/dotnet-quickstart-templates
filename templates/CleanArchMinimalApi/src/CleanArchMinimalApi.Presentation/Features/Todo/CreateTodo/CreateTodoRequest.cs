@@ -9,7 +9,11 @@ internal sealed record CreateTodoRequest
 
     public static CreateTodoCommand MapToCommand(CreateTodoRequest request)
     {
-        return new() { Note = request.Body.Note, Title = request.Body.Title };
+        return new()
+        {
+            Note = request.Body.Note, 
+            Title = request.Body.Title
+        };
     }
 }
 

@@ -12,8 +12,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
 
     public required DbSet<TodoItem> TodoItems { get; set; }
 
-    public async Task<int> SaveChangesAsync()
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
     {
-        return await base.SaveChangesAsync();
+        return await base.SaveChangesAsync(cancellationToken);
     }
 }

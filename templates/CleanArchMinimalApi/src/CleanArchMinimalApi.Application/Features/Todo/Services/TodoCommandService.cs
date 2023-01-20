@@ -25,7 +25,10 @@ public class TodoCommandService : ITodoCommandService
     {
         var todo = new TodoItem
         {
-            Title = command.Title, Note = command.Note, Done = false, Created = _dateTimeService.Now()
+            Title = command.Title,
+            Note = command.Note, 
+            Done = false, 
+            Created = _dateTimeService.Now()
         };
 
         var created = await _todoRepository.CreateTodoItem(todo, cancellationToken);
