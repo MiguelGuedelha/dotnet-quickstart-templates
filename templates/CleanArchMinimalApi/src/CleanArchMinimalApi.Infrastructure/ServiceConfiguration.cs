@@ -1,6 +1,5 @@
 ﻿using CleanArchMinimalApi.Application.Abstractions.Services;
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
-using CleanArchMinimalApi.Infrastructure.Abstractions.Persistence;
 using CleanArchMinimalApi.Infrastructure.Features.Todo.Repositories;
 using CleanArchMinimalApi.Infrastructure.Options;
 using CleanArchMinimalApi.Infrastructure.Shared.Caching;

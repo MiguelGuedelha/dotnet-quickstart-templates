@@ -10,6 +10,7 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.2" />
     <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.2" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageVersion Include="Serilog.AspNetCore" Version="6.1.0" />
     <PackageVersion Include="StackExchange.Redis" Version="2.6.90" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>

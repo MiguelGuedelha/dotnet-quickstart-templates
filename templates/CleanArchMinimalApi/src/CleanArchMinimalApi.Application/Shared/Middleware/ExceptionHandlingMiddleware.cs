@@ -10,7 +10,7 @@ namespace CleanArchMinimalApi.Application.Shared.Middleware;
 
 internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
 {
-    private static readonly JsonSerializerOptions _options = new()
+    private static readonly JsonSerializerOptions Options = new()
     {
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
     };
@@ -52,7 +52,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         httpContext.Response.ContentType = "application/json";
         httpContext.Response.StatusCode = statusCode;
 
-        await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response, _options));
+        await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response, Options));
     }
 
     private static int GetStatusCode(Exception exception) =>

@@ -2,7 +2,7 @@
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
 using CleanArchMinimalApi.Application.Shared.Exceptions;
 using CleanArchMinimalApi.Domain.Features.Todo;
-using CleanArchMinimalApi.Infrastructure.Abstractions.Persistence;
+using CleanArchMinimalApi.Infrastructure.Shared.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchMinimalApi.Infrastructure.Features.Todo.Repositories;

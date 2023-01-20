@@ -1,7 +1,7 @@
 ﻿using CleanArchMinimalApi.Domain.Features.Todo;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchMinimalApi.Infrastructure.Abstractions.Persistence;
+namespace CleanArchMinimalApi.Infrastructure.Shared.Persistence;
 
 public interface IApplicationDbContext
 {
