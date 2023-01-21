@@ -1,5 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Features.Todo.Commands;
-using CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
+﻿using CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Services;
 

@@ -6,5 +6,5 @@ namespace CleanArchMinimalApi.Application.Features.Todo.Repositories;
 public interface ITodoRepository
 {
     Task<bool> CreateTodoItem(TodoItem item, CancellationToken cancellationToken);
-    Task<GetTodoQueryResult> GetTodoById(Guid queryId, CancellationToken cancellationToken);
+    Task<GetTodoQueryResult?> GetTodoById(Guid queryId, CancellationToken cancellationToken);
 }

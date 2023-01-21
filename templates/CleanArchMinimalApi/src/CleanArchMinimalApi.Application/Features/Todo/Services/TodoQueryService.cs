@@ -1,5 +1,6 @@
 ﻿using CleanArchMinimalApi.Application.Features.Todo.GetTodo;
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
+using CleanArchMinimalApi.Application.Shared.Exceptions;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Services;
 
@@ -14,6 +15,13 @@ public class TodoQueryService : ITodoQueryService
 
     public async Task<GetTodoQueryResult> GetTodo(GetTodoQuery query, CancellationToken cancellationToken)
     {
-        return await _todoRepository.GetTodoById(query.Id, cancellationToken);
+        var todo = await _todoRepository.GetTodoById(query.Id, cancellationToken);
+
+        if (todo is null)
+        {
+            throw new NotFoundException<GetTodoQueryResult>($"Failed to get todo with Id={query.Id}");
+        }
+
+        return todo;
     }
 }

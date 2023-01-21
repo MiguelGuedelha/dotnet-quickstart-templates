@@ -1,6 +1,5 @@
 ﻿using CleanArchMinimalApi.Application.Features.Todo.GetTodo;
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
-using CleanArchMinimalApi.Application.Shared.Exceptions;
 using CleanArchMinimalApi.Domain.Features.Todo;
 using CleanArchMinimalApi.Infrastructure.Shared.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -25,17 +24,12 @@ public class TodoRepository : ITodoRepository
         return result == 1;
     }
 
-    public async Task<GetTodoQueryResult> GetTodoById(Guid id, CancellationToken cancellationToken)
+    public async Task<GetTodoQueryResult?> GetTodoById(Guid id, CancellationToken cancellationToken)
     {
         var todo = await _applicationDbContext.TodoItems
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
-        if (todo is null)
-        {
-            throw new NotFoundException($"Todo with Id={id} not found");
-        }
-
-        return GetTodoQueryResult.MapFromTodoItem(todo);
+        return todo is null ? null : GetTodoQueryResult.MapFromTodoItem(todo);
     }
 }

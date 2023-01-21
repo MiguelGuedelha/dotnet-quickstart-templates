@@ -1,8 +1,6 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Services;
+﻿namespace CleanArchMinimalApi.Application.Shared.Services;
 
-namespace CleanArchMinimalApi.Application.Shared.Services;
-
-public class DateTimeService : IDateTimeService
+internal sealed class DateTimeService : IDateTimeService
 {
     public DateTime Now()
     {

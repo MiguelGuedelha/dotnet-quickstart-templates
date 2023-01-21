@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Services;
+﻿using CleanArchMinimalApi.Application.Abstractions.Caching;
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
 using CleanArchMinimalApi.Infrastructure.Features.Todo.Repositories;
 using CleanArchMinimalApi.Infrastructure.Options;

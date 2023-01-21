@@ -45,10 +45,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
 
         var response = new
         {
-            Title = statusName, 
-            Status = statusCode, 
-            Detail = exception.Message, 
-            Errors = GetErrors(exception)
+            Title = statusName, Status = statusCode, Detail = exception.Message, Errors = GetErrors(exception)
         };
 
         httpContext.Response.ContentType = "application/json";
@@ -62,7 +59,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         return exception switch
         {
             ValidationException => StatusCodes.Status400BadRequest,
-            NotFoundException => StatusCodes.Status404NotFound,
+            BaseNotFoundException => StatusCodes.Status404NotFound,
             _ => StatusCodes.Status500InternalServerError
         };
     }

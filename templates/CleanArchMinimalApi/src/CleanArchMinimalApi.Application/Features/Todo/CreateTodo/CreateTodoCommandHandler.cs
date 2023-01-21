@@ -1,6 +1,5 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
-using CleanArchMinimalApi.Application.Features.Todo.Commands;
-using CleanArchMinimalApi.Application.Features.Todo.Services;
+﻿using CleanArchMinimalApi.Application.Features.Todo.Services;
+using CleanArchMinimalApi.Application.Shared.Mediator;
 using CleanArchMinimalApi.Shared.Helpers;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.CreateTodo;

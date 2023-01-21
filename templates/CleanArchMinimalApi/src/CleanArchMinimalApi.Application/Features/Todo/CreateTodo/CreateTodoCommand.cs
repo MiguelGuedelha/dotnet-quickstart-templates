@@ -1,7 +1,6 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
-using CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
+﻿using CleanArchMinimalApi.Application.Shared.Mediator;
 
-namespace CleanArchMinimalApi.Application.Features.Todo.Commands;
+namespace CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
 
 public sealed record CreateTodoCommand : ICommand<CreateTodoCommandResult>
 {

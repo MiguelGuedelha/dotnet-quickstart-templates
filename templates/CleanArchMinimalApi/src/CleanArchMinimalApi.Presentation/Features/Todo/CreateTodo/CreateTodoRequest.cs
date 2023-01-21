@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Features.Todo.Commands;
+﻿using CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchMinimalApi.Presentation.Features.Todo.CreateTodo;

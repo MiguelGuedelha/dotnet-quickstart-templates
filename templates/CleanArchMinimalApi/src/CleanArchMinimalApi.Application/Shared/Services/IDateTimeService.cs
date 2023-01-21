@@ -1,4 +1,4 @@
-﻿namespace CleanArchMinimalApi.Application.Abstractions.Services;
+﻿namespace CleanArchMinimalApi.Application.Shared.Services;
 
 public interface IDateTimeService
 {
