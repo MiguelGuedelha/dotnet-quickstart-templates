@@ -5,7 +5,8 @@ namespace CleanArchMinimalApi.Presentation.Features.Todo.GetTodo;
 
 internal sealed record GetTodoRequest
 {
-    [FromRoute] public Guid Id { get; init; }
+    [FromRoute]
+    public Guid Id { get; init; }
 
     public static GetTodoQuery MapToCommand(GetTodoRequest request)
     {

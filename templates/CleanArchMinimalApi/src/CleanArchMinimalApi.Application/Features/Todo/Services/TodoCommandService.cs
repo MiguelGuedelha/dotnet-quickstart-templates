@@ -19,12 +19,16 @@ internal sealed class TodoCommandService : ITodoCommandService
         _dateTimeService = dateTimeService;
     }
 
-    public async Task<CreateTodoCommandResult> CreateTodo(CreateTodoCommand command,
+    public async Task<CreateTodoCommandResult> CreateTodo(
+        CreateTodoCommand command,
         CancellationToken cancellationToken)
     {
         var todo = new TodoItem
         {
-            Title = command.Title, Note = command.Note, Done = false, Created = _dateTimeService.Now()
+            Title = command.Title,
+            Note = command.Note,
+            Done = false,
+            Created = _dateTimeService.Now()
         };
 
         var created = await _todoRepository.CreateTodoItem(todo, cancellationToken);

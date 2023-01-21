@@ -14,7 +14,9 @@ internal sealed class CacheService : ICacheService
     private readonly DistributedCacheEntryOptions _insertionOptions;
     private readonly IEnumerable<IServer> _servers;
 
-    public CacheService(IDistributedCache distributedCache, IConnectionMultiplexer multiplexer,
+    public CacheService(
+        IDistributedCache distributedCache,
+        IConnectionMultiplexer multiplexer,
         IOptions<CacheOptions> options)
     {
         ArgumentHelper.Initialise(distributedCache, out _distributedCache);

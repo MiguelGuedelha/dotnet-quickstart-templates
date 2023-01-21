@@ -11,6 +11,12 @@ internal sealed record CreateTodoResponse
 
     public static CreateTodoResponse MapFromCommandResponse(CreateTodoCommandResult result)
     {
-        return new() { Id = result.Id, Title = result.Title, Done = result.Done, Note = result.Note };
+        return new()
+        {
+            Id = result.Id,
+            Title = result.Title,
+            Done = result.Done,
+            Note = result.Note
+        };
     }
 }

@@ -12,8 +12,8 @@ public record GetTodoQueryResult
     {
         return new()
         {
-            Title = todo.Title, 
-            Note = todo.Note, 
+            Title = todo.Title,
+            Note = todo.Note,
             Done = todo.Done
         };
     }

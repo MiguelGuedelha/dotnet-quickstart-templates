@@ -13,9 +13,9 @@ public record CreateTodoCommandResult
     {
         return new()
         {
-            Id = item.Id, 
-            Title = item.Title, 
-            Note = item.Note, 
+            Id = item.Id,
+            Title = item.Title,
+            Note = item.Note,
             Done = item.Done
         };
     }

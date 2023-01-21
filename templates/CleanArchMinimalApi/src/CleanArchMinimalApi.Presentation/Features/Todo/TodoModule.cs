@@ -11,7 +11,8 @@ public class TodoModule : CarterModule
 {
     private const string GetTodoEndpointName = "GetTodo";
 
-    public TodoModule() : base("/todo")
+    public TodoModule()
+        : base("/todo")
     {
     }
 
@@ -22,7 +23,9 @@ public class TodoModule : CarterModule
             .WithName(GetTodoEndpointName);
     }
 
-    private static async Task<IResult> CreateTodo(ISender sender, [AsParameters] CreateTodoRequest request,
+    private static async Task<IResult> CreateTodo(
+        ISender sender,
+        [AsParameters] CreateTodoRequest request,
         CancellationToken cancellationToken)
     {
         var command = CreateTodoRequest.MapToCommand(request);
@@ -31,7 +34,9 @@ public class TodoModule : CarterModule
         return Results.CreatedAtRoute(GetTodoEndpointName, new { response.Id }, response);
     }
 
-    private static async Task<IResult> GetTodo(ISender sender, [AsParameters] GetTodoRequest request,
+    private static async Task<IResult> GetTodo(
+        ISender sender,
+        [AsParameters] GetTodoRequest request,
         CancellationToken cancellationToken)
     {
         var query = GetTodoRequest.MapToCommand(request);

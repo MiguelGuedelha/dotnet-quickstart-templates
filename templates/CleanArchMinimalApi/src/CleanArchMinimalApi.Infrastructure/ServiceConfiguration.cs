@@ -14,7 +14,8 @@ namespace CleanArchMinimalApi.Infrastructure;
 
 public static class ServiceConfiguration
 {
-    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,
+    public static IServiceCollection AddInfrastructureServices(
+        this IServiceCollection services,
         IConfiguration configuration)
     {
         return services
