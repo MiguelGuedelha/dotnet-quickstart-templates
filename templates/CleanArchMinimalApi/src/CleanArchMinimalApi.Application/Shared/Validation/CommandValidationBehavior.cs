@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Shared.Mediator;
+﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
 using FluentValidation;
 using MediatR;
 

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
-namespace CleanArchMinimalApi.Application.Shared.Mediator;
+namespace CleanArchMinimalApi.Application.Abstractions.Mediator;
 
-public interface IQuery<out TResponse> : IRequest<TResponse>
+internal interface IQuery<out TResponse> : IRequest<TResponse>
 {
 }

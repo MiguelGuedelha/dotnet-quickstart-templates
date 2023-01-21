@@ -2,7 +2,7 @@
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Services;
 
-public interface ITodoCommandService
+internal interface ITodoCommandService
 {
     Task<CreateTodoCommandResult> CreateTodo(CreateTodoCommand command, CancellationToken cancellationToken);
 }

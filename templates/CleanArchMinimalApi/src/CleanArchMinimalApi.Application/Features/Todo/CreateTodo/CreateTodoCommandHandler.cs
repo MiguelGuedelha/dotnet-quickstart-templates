@@ -1,10 +1,10 @@
-﻿using CleanArchMinimalApi.Application.Features.Todo.Services;
-using CleanArchMinimalApi.Application.Shared.Mediator;
+﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
+using CleanArchMinimalApi.Application.Features.Todo.Services;
 using CleanArchMinimalApi.Shared.Helpers;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
 
-public class CreateTodoCommandHandler : ICommandHandler<CreateTodoCommand, CreateTodoCommandResult>
+internal sealed class CreateTodoCommandHandler : ICommandHandler<CreateTodoCommand, CreateTodoCommandResult>
 {
     private readonly ITodoCommandService _todoCommandService;
 

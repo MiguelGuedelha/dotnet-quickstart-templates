@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchMinimalApi.Infrastructure.Features.Todo.Repositories;
 
-public class TodoRepository : ITodoRepository
+internal sealed class TodoRepository : ITodoRepository
 {
     private readonly IApplicationDbContext _applicationDbContext;
 

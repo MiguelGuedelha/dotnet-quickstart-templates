@@ -2,7 +2,7 @@
 
 namespace CleanArchMinimalApi.Presentation.Features.Todo.CreateTodo;
 
-public sealed record CreateTodoResponse
+internal sealed record CreateTodoResponse
 {
     public required Guid Id { get; init; }
     public required string Title { get; init; }
@@ -11,12 +11,6 @@ public sealed record CreateTodoResponse
 
     public static CreateTodoResponse MapFromCommandResponse(CreateTodoCommandResult result)
     {
-        return new()
-        {
-            Id = result.Id, 
-            Title = result.Title, 
-            Done = result.Done, 
-            Note = result.Note
-        };
+        return new() { Id = result.Id, Title = result.Title, Done = result.Done, Note = result.Note };
     }
 }

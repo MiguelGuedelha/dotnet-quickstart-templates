@@ -64,7 +64,7 @@ for a given feature are in each project
 
 ### Shared
 
-The `Shared` folder is a place where you can put re-usable services, middleware, exception
+The `Shared` folder is a place where you can put re-usable services, interfaces, middleware, exceptions
 or any other cross-cutting concerns for that specific layer
 
 The classes, records, etc found in this folder should be internal for the most part.
@@ -97,4 +97,4 @@ organisation
 
 * Unless a class needs to be visible in other layers, it should always be `internal` (or `private`) by default, instead
   of `public`
-* Apart from base classes, all others should be `sealed`
+* Apart from classes that are meant to be inherited, all others should be `sealed`

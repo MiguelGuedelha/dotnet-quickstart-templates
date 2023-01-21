@@ -1,9 +1,9 @@
-﻿using CleanArchMinimalApi.Application.Features.Todo.Services;
-using CleanArchMinimalApi.Application.Shared.Mediator;
+﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
+using CleanArchMinimalApi.Application.Features.Todo.Services;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.GetTodo;
 
-public class GetTodoQueryHandler : IQueryHandler<GetTodoQuery, GetTodoQueryResult>
+internal sealed class GetTodoQueryHandler : IQueryHandler<GetTodoQuery, GetTodoQueryResult>
 {
     private readonly ITodoQueryService _todoQueryService;
 

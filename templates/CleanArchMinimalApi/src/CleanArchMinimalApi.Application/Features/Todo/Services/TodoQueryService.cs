@@ -4,7 +4,7 @@ using CleanArchMinimalApi.Application.Shared.Exceptions;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Services;
 
-public class TodoQueryService : ITodoQueryService
+internal sealed class TodoQueryService : ITodoQueryService
 {
     private readonly ITodoRepository _todoRepository;
 

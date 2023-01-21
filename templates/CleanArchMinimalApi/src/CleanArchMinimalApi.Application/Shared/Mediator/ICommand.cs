@@ -1,11 +1,11 @@
 ﻿using MediatR;
 
-namespace CleanArchMinimalApi.Application.Shared.Mediator;
+namespace CleanArchMinimalApi.Application.Abstractions.Mediator;
 
-public interface ICommand<out TResponse> : IRequest<TResponse>
+internal interface ICommand<out TResponse> : IRequest<TResponse>
 {
 }
 
-public interface ICommand : IRequest
+internal interface ICommand : IRequest
 {
 }

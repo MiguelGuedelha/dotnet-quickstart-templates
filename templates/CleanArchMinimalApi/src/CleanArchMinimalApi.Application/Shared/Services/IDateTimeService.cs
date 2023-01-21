@@ -1,6 +1,6 @@
 ﻿namespace CleanArchMinimalApi.Application.Shared.Services;
 
-public interface IDateTimeService
+internal interface IDateTimeService
 {
     DateTime Now();
     DateOnly Today();

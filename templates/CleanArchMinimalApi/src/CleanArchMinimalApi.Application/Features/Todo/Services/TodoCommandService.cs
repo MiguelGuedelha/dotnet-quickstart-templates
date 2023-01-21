@@ -6,7 +6,7 @@ using CleanArchMinimalApi.Domain.Features.Todo;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Services;
 
-public class TodoCommandService : ITodoCommandService
+internal sealed class TodoCommandService : ITodoCommandService
 {
     private readonly IDateTimeService _dateTimeService;
     private readonly ITodoRepository _todoRepository;
