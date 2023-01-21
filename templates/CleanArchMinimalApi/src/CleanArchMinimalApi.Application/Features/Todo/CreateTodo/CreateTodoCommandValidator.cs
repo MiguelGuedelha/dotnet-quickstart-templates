@@ -1,5 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Features.Todo.Commands;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.CreateTodo;
 

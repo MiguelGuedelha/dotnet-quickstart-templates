@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
+﻿using CleanArchMinimalApi.Application.Shared.Mediator;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.GetTodo;
 

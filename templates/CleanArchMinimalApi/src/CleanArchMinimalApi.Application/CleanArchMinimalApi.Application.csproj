@@ -16,8 +16,4 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageVersion Update="MediatR" Version="11.1.0" />
-  </ItemGroup>
-
 </Project>

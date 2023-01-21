@@ -11,11 +11,11 @@ public record CreateTodoCommandResult
 
     public static CreateTodoCommandResult MapFromTodoItem(TodoItem item)
     {
-        return new CreateTodoCommandResult
+        return new()
         {
-            Id = item.Id,
-            Title = item.Title,
-            Note = item.Note,
+            Id = item.Id, 
+            Title = item.Title, 
+            Note = item.Note, 
             Done = item.Done
         };
     }

@@ -8,14 +8,14 @@ public sealed record CreateTodoResponse
     public required string Title { get; init; }
     public required string Note { get; init; }
     public required bool Done { get; init; }
-    
+
     public static CreateTodoResponse MapFromCommandResponse(CreateTodoCommandResult result)
     {
-        return new CreateTodoResponse
+        return new()
         {
-            Id = result.Id,
-            Title = result.Title,
-            Done = result.Done,
+            Id = result.Id, 
+            Title = result.Title, 
+            Done = result.Done, 
             Note = result.Note
         };
     }

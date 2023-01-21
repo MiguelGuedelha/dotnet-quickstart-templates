@@ -1,5 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Services;
-using CleanArchMinimalApi.Application.Features.Todo.Services;
+﻿using CleanArchMinimalApi.Application.Features.Todo.Services;
 using CleanArchMinimalApi.Application.Shared.Middleware;
 using CleanArchMinimalApi.Application.Shared.Services;
 using CleanArchMinimalApi.Application.Shared.Validation;

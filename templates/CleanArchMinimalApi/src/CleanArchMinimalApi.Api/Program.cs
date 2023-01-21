@@ -1,6 +1,7 @@
 ﻿using CleanArchMinimalApi.Application;
 using CleanArchMinimalApi.Infrastructure;
 using CleanArchMinimalApi.Presentation;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -13,6 +14,14 @@ builder.Services.AddSwaggerGen();
 //     {
 //         options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault;
 //     });
+
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 builder.Services.AddPresentationServices();
 builder.Services.AddApplicationServices();

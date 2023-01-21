@@ -1,4 +1,4 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
+﻿using CleanArchMinimalApi.Application.Shared.Mediator;
 using FluentValidation;
 using MediatR;
 
@@ -12,7 +12,8 @@ internal sealed class CommandValidationBehavior<TRequest, TResponse>
     {
     }
 
-    public new async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    public new async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
+        CancellationToken cancellationToken)
     {
         return await base.Handle(request, next, cancellationToken);
     }

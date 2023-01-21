@@ -10,10 +10,10 @@ public record GetTodoQueryResult
 
     public static GetTodoQueryResult MapFromTodoItem(TodoItem todo)
     {
-        return new GetTodoQueryResult
+        return new()
         {
-            Title = todo.Title,
-            Note = todo.Note,
+            Title = todo.Title, 
+            Note = todo.Note, 
             Done = todo.Done
         };
     }

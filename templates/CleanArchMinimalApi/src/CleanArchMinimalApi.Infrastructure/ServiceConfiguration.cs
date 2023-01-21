@@ -1,6 +1,5 @@
-﻿using CleanArchMinimalApi.Application.Abstractions.Services;
+﻿using CleanArchMinimalApi.Application.Abstractions.Caching;
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
-using CleanArchMinimalApi.Infrastructure.Abstractions.Persistence;
 using CleanArchMinimalApi.Infrastructure.Features.Todo.Repositories;
 using CleanArchMinimalApi.Infrastructure.Options;
 using CleanArchMinimalApi.Infrastructure.Shared.Caching;
@@ -15,7 +14,8 @@ namespace CleanArchMinimalApi.Infrastructure;
 
 public static class ServiceConfiguration
 {
-    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,
+        IConfiguration configuration)
     {
         return services
             .AddPackageServices(configuration)
@@ -28,7 +28,7 @@ public static class ServiceConfiguration
             .AddScoped<ICacheService, CacheService>()
             .Configure<CacheOptions>(configuration.GetSection(CacheOptions.Region))
             .Configure<CacheKeyOptions>(configuration.GetSection(CacheKeyOptions.Region));
-        
+
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
         services.AddTransient<ITodoRepository, TodoRepository>();
@@ -48,7 +48,7 @@ public static class ServiceConfiguration
         });
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseInMemoryDatabase(databaseName: "CleanArchMinimalDb"));
+            options.UseInMemoryDatabase("CleanArchMinimalDb"));
 
         return services;
     }
