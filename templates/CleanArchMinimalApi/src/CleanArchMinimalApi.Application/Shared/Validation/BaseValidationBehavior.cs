@@ -19,14 +19,10 @@ internal class BaseValidationBehavior<TRequest, TResponse>
         CancellationToken cancellationToken)
     {
         if (cancellationToken.IsCancellationRequested)
-        {
             return await Task.FromCanceled<TResponse>(cancellationToken);
-        }
 
         if (!_validators.Any())
-        {
             return await next();
-        }
 
         var context = new ValidationContext<TRequest>(request);
 

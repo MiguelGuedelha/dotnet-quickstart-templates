@@ -44,9 +44,7 @@ internal sealed class CacheService : ICacheService
         var cacheString = await _distributedCache.GetStringAsync(key, cancellationToken);
 
         if (string.IsNullOrWhiteSpace(cacheString))
-        {
             return null;
-        }
 
         try
         {

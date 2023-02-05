@@ -72,9 +72,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
     {
         IReadOnlyDictionary<string, string[]>? errors = null;
         if (exception is ValidationException validationException)
-        {
             errors = validationException.Errors;
-        }
 
         return errors;
     }

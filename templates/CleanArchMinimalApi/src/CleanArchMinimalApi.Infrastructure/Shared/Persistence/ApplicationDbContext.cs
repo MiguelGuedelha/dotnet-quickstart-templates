@@ -1,6 +1,5 @@
 ﻿using CleanArchMinimalApi.Domain.Features.Todo;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace CleanArchMinimalApi.Infrastructure.Shared.Persistence;
 

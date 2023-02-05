@@ -18,9 +18,7 @@ internal sealed class TodoQueryService : ITodoQueryService
         var todo = await _todoRepository.GetTodoById(query.Id, cancellationToken);
 
         if (todo is null)
-        {
             throw new NotFoundException<GetTodoQueryResult>($"Failed to get todo with Id={query.Id}");
-        }
 
         return todo;
     }

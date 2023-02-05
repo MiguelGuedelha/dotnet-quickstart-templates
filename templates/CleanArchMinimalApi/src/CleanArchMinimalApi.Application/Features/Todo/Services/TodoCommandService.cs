@@ -34,9 +34,7 @@ internal sealed class TodoCommandService : ITodoCommandService
         var created = await _todoRepository.CreateTodoItem(todo, cancellationToken);
 
         if (!created)
-        {
             throw new CreationFailedException<TodoCommandService>("Failed to create Todo");
-        }
 
         return CreateTodoCommandResult.MapFromTodoItem(todo);
     }
