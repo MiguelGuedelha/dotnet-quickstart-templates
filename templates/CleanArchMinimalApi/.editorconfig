@@ -25,6 +25,10 @@ tab_width = 2
 indent_size = 2
 tab_width = 2
 
+# Program.cs
+[Program.cs]
+dotnet_diagnostic.CA1852.severity = none
+
 # Code files
 [*.{cs,csx,vb,vbx}]
 indent_size = 4
@@ -32,17 +36,11 @@ tab_width = 4
 insert_final_newline = true
 charset = utf-8-bom
 
-# Program.cs
-[Program.cs]
-dotnet_diagnostic.CA1852.severity = none
-
 # .NET
-[*.{cs,csx,vb,vbx}]
 dotnet_separate_import_directive_groups = false
 dotnet_sort_system_directives_first = true
 
 # C#
-[*.{cs,csx,vb,vbx}]
 csharp_indent_braces = false
 csharp_indent_case_contents = true
 csharp_indent_labels = flush_left
@@ -85,7 +83,6 @@ csharp_space_between_square_brackets = false
 csharp_using_directive_placement = outside_namespace:error
 
 # Style
-[*.{cs,csx,vb,vbx}]
 csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true:warning
 csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true:warning
 csharp_style_allow_embedded_statements_on_same_line_experimental = true:warning
@@ -126,7 +123,6 @@ csharp_style_unused_value_expression_statement_preference = discard_variable:sil
 csharp_style_var_when_type_is_apparent = true:suggestion
 
 # Analyzer
-[*.{cs,csx,vb,vbx}]
 dotnet_analyzer_diagnostic.category-Performance.severity = warning
 dotnet_code_quality_unused_parameters = all:suggestion
 dotnet_diagnostic.bc40000.severity = warning
@@ -338,7 +334,6 @@ dotnet_diagnostic.fs3520.severity = warning
 dotnet_diagnostic.wme006.severity = warning
 
 # Naming
-[*.{cs,csx,vb,vbx}]
 dotnet_naming_rule.constant_fields_should_be_pascal_case.severity = suggestion
 dotnet_naming_rule.constant_fields_should_be_pascal_case.style = pascal_case_style
 dotnet_naming_rule.constant_fields_should_be_pascal_case.symbols = constant_fields
@@ -464,7 +459,6 @@ dotnet_naming_symbols.types_and_namespaces_symbols.applicable_accessibilities = 
 dotnet_naming_symbols.types_and_namespaces_symbols.applicable_kinds = namespace, class, struct, enum, delegate
 
 # Resharper
-[*]
 resharper_access_rights_in_text_highlighting = warning
 resharper_access_to_disposed_closure_highlighting = warning
 resharper_access_to_for_each_variable_in_closure_highlighting = warning
@@ -809,26 +803,6 @@ resharper_expression_braces = inside
 resharper_expression_is_always_null_highlighting = warning
 resharper_expression_pars = inside
 resharper_extra_spaces = remove_all
-resharper_f_sharp_builtin_function_reimplementation_highlighting = warning
-resharper_f_sharp_cons_with_empty_list_pat_highlighting = warning
-resharper_f_sharp_expression_can_be_replaced_with_condition_highlighting = warning
-resharper_f_sharp_interpolated_string_highlighting = warning
-resharper_f_sharp_lambda_can_be_replaced_with_inner_expression_highlighting = warning
-resharper_f_sharp_lambda_can_be_simplified_highlighting = warning
-resharper_f_sharp_redundant_application_highlighting = warning
-resharper_f_sharp_redundant_as_pattern_highlighting = warning
-resharper_f_sharp_redundant_attribute_parens_highlighting = warning
-resharper_f_sharp_redundant_attribute_suffix_highlighting = warning
-resharper_f_sharp_redundant_backticks_highlighting = warning
-resharper_f_sharp_redundant_dot_in_indexer_highlighting = warning
-resharper_f_sharp_redundant_name_qualifier_highlighting = warning
-resharper_f_sharp_redundant_new_highlighting = warning
-resharper_f_sharp_redundant_open_highlighting = warning
-resharper_f_sharp_redundant_parens_highlighting = warning
-resharper_f_sharp_redundant_require_qualified_access_attribute_highlighting = warning
-resharper_f_sharp_redundant_string_interpolation_highlighting = warning
-resharper_f_sharp_redundant_union_case_field_patterns_highlighting = warning
-resharper_f_sharp_use_wild_self_id_highlighting = warning
 resharper_field_can_be_made_read_only_global_highlighting = warning
 resharper_field_can_be_made_read_only_local_highlighting = warning
 resharper_field_hides_interface_property_with_default_implementation_highlighting = warning
@@ -853,30 +827,6 @@ resharper_gc_suppress_finalize_for_type_without_destructor_highlighting = warnin
 resharper_generator_mode = false
 resharper_generic_enumerator_not_disposed_highlighting = warning
 resharper_heuristic_unreachable_code_highlighting = warning
-resharper_html_allow_far_alignment = false
-resharper_html_attribute_indent = align_by_first_attribute
-resharper_html_attribute_not_resolved_highlighting = warning
-resharper_html_attribute_style = do_not_touch
-resharper_html_attribute_value_not_resolved_highlighting = warning
-resharper_html_attributes_quotes_highlighting = warning
-resharper_html_blank_line_after_pi = true
-resharper_html_dead_code_highlighting = warning
-resharper_html_event_not_resolved_highlighting = warning
-resharper_html_id_duplication_highlighting = warning
-resharper_html_id_not_resolved_highlighting = warning
-resharper_html_linebreak_before_elements = body, div, p, form, h1, h2, h3
-resharper_html_max_blank_lines_between_tags = 2
-resharper_html_max_line_length = 120
-resharper_html_obsolete_highlighting = warning
-resharper_html_path_error_highlighting = warning
-resharper_html_pi_attribute_style = on_single_line
-resharper_html_space_before_self_closing = false
-resharper_html_tag_not_closed_highlighting = error
-resharper_html_tag_not_resolved_highlighting = warning
-resharper_html_tag_should_be_self_closed_highlighting = warning
-resharper_html_tag_should_not_be_self_closed_highlighting = warning
-resharper_html_warning_highlighting = warning
-resharper_html_wrap_lines = true
 resharper_identifier_typo_highlighting = warning
 resharper_ignore_space_preservation = false
 resharper_ignored_directive_highlighting = warning
@@ -1764,19 +1714,6 @@ resharper_virtual_member_call_in_constructor_highlighting = warning
 resharper_virtual_member_never_overridden_global_highlighting = warning
 resharper_virtual_member_never_overridden_local_highlighting = warning
 resharper_void_method_with_must_use_return_value_attribute_highlighting = warning
-resharper_web_config_module_not_resolved_highlighting = warning
-resharper_web_config_module_qualification_resolve_highlighting = warning
-resharper_web_config_redundant_add_namespace_tag_highlighting = warning
-resharper_web_config_redundant_location_tag_highlighting = warning
-resharper_web_config_tag_prefix_redundand_highlighting = warning
-resharper_web_config_type_not_resolved_highlighting = warning
-resharper_web_config_unused_add_tag_highlighting = warning
-resharper_web_config_unused_element_due_to_config_source_attribute_highlighting = warning
-resharper_web_config_unused_remove_or_clear_tag_highlighting = warning
-resharper_web_config_web_config_path_warning_highlighting = warning
-resharper_web_config_wrong_module_highlighting = warning
-resharper_web_ignored_path_highlighting = none
-resharper_web_mapped_path_highlighting = warning
 resharper_with_expression_instead_of_initializer_highlighting = warning
 resharper_with_expression_modifies_all_members_highlighting = warning
 resharper_wrap_after_binary_opsign = true
@@ -1823,84 +1760,3 @@ resharper_wrap_switch_expression = chop_always
 resharper_wrap_ternary_expr_style = chop_if_long
 resharper_wrap_verbatim_interpolated_strings = no_wrap
 resharper_wrong_indent_size_highlighting = none
-resharper_xaml_assign_null_to_not_null_attribute_highlighting = warning
-resharper_xaml_avalonia_wrong_binding_mode_for_stream_binding_operator_highlighting = warning
-resharper_xaml_binding_with_context_not_resolved_highlighting = warning
-resharper_xaml_binding_without_context_not_resolved_highlighting = warning
-resharper_xaml_compiled_binding_missing_data_type_error_highlighting_highlighting = error
-resharper_xaml_constructor_warning_highlighting = warning
-resharper_xaml_decimal_parsing_is_culture_dependent_highlighting = warning
-resharper_xaml_dependency_property_resolve_error_highlighting = warning
-resharper_xaml_duplicate_style_setter_highlighting = warning
-resharper_xaml_dynamic_resource_error_highlighting = error
-resharper_xaml_element_name_reference_not_resolved_highlighting = error
-resharper_xaml_empty_grid_length_definition_highlighting = error
-resharper_xaml_field_modifier_requires_name_attribute_highlighting = warning
-resharper_xaml_grid_definitions_can_be_converted_to_attribute_highlighting = warning
-resharper_xaml_ignored_path_highlighting_highlighting = none
-resharper_xaml_index_out_of_grid_definition_highlighting = warning
-resharper_xaml_invalid_member_type_highlighting = error
-resharper_xaml_invalid_resource_target_type_highlighting = error
-resharper_xaml_invalid_resource_type_highlighting = error
-resharper_xaml_invalid_type_highlighting = error
-resharper_xaml_language_level_highlighting = error
-resharper_xaml_mapped_path_highlighting_highlighting = warning
-resharper_xaml_method_arguments_will_be_ignored_highlighting = warning
-resharper_xaml_missing_grid_index_highlighting = warning
-resharper_xaml_overloads_collision_highlighting = warning
-resharper_xaml_parent_is_out_of_current_component_tree_highlighting = warning
-resharper_xaml_path_error_highlighting = warning
-resharper_xaml_possible_null_reference_exception_highlighting = warning
-resharper_xaml_redundant_attached_property_highlighting = warning
-resharper_xaml_redundant_binding_mode_attribute_highlighting = warning
-resharper_xaml_redundant_collection_property_highlighting = warning
-resharper_xaml_redundant_freeze_attribute_highlighting = warning
-resharper_xaml_redundant_grid_definitions_highlighting = warning
-resharper_xaml_redundant_grid_span_highlighting = warning
-resharper_xaml_redundant_modifiers_attribute_highlighting = warning
-resharper_xaml_redundant_name_attribute_highlighting = warning
-resharper_xaml_redundant_namespace_alias_highlighting = warning
-resharper_xaml_redundant_property_type_qualifier_highlighting = warning
-resharper_xaml_redundant_resource_highlighting = warning
-resharper_xaml_redundant_styled_value_highlighting = warning
-resharper_xaml_redundant_update_source_trigger_attribute_highlighting = warning
-resharper_xaml_redundant_xamarin_forms_class_declaration_highlighting = warning
-resharper_xaml_resource_file_path_case_mismatch_highlighting = warning
-resharper_xaml_routed_event_resolve_error_highlighting = warning
-resharper_xaml_static_resource_not_resolved_highlighting = warning
-resharper_xaml_style_class_not_found_highlighting = warning
-resharper_xaml_style_invalid_target_type_highlighting = error
-resharper_xaml_unexpected_element_highlighting = error
-resharper_xaml_unexpected_text_token_highlighting = error
-resharper_xaml_x_key_attribute_disallowed_highlighting = error
-resharper_xaml_xaml_duplicate_device_family_type_view_highlighting_highlighting = error
-resharper_xaml_xaml_mismatched_device_family_view_clr_name_highlighting_highlighting = warning
-resharper_xaml_xaml_relative_source_default_mode_warning_highlighting_highlighting = warning
-resharper_xaml_xaml_unknown_device_family_type_highlighting_highlighting = warning
-resharper_xaml_xaml_xamarin_forms_data_type_and_binding_context_type_mismatched_highlighting_highlighting = warning
-resharper_xml_allow_far_alignment = false
-resharper_xml_attribute_indent = align_by_first_attribute
-resharper_xml_attribute_style = do_not_touch
-resharper_xml_blank_line_after_pi = true
-resharper_xml_linebreak_before_elements =
-resharper_xml_max_blank_lines_between_tags = 2
-resharper_xml_max_line_length = 120
-resharper_xml_pi_attribute_style = do_not_touch
-resharper_xml_space_before_self_closing = true
-resharper_xml_wrap_lines = true
-resharper_xml_wrap_tags_and_pi = true
-resharper_xml_wrap_text = false
-resharper_xmldoc_allow_far_alignment = true
-resharper_xmldoc_attribute_indent = align_by_first_attribute
-resharper_xmldoc_attribute_style = on_single_line
-resharper_xmldoc_blank_line_after_pi = false
-resharper_xmldoc_linebreak_before_elements = summary, remarks, example, returns, param, typeparam, value, para
-resharper_xmldoc_max_blank_lines_between_tags = 0
-resharper_xmldoc_max_line_length = 120
-resharper_xmldoc_pi_attribute_style = on_single_line
-resharper_xmldoc_space_before_self_closing = true
-resharper_xmldoc_wrap_lines = false
-resharper_xmldoc_wrap_tags_and_pi = false
-resharper_xmldoc_wrap_text = true
-resharper_xunit_xunit_test_with_console_output_highlighting = warning
-resharper_zero_index_from_end_highlighting = warning
