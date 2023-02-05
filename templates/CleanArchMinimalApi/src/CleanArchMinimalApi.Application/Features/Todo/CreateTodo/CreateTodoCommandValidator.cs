@@ -7,9 +7,9 @@ public class CreateTodoCommandValidator : AbstractValidator<CreateTodoCommand>
     public CreateTodoCommandValidator()
     {
         RuleFor(x => x.Title)
-            .MaximumLength(150);
+           .MaximumLength(150);
 
         RuleFor(x => x.Note)
-            .MaximumLength(300);
+           .MaximumLength(300);
     }
 }

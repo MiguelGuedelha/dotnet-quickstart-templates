@@ -27,8 +27,8 @@ internal sealed class TodoRepository : ITodoRepository
     public async Task<GetTodoQueryResult?> GetTodoById(Guid id, CancellationToken cancellationToken)
     {
         var todo = await _applicationDbContext.TodoItems
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+                      .AsNoTracking()
+                      .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
         return todo is null ? null : GetTodoQueryResult.MapFromTodoItem(todo);
     }

@@ -20,7 +20,8 @@ internal sealed class CacheService : ICacheService
         IOptions<CacheOptions> options)
     {
         ArgumentHelper.Initialise(distributedCache, out _distributedCache);
-        ArgumentHelper.Initialise(multiplexer.GetEndPoints().Select(x => multiplexer.GetServer(x)), out _servers);
+        ArgumentHelper.Initialise(multiplexer.GetEndPoints()
+                                     .Select(x => multiplexer.GetServer(x)), out _servers);
         ArgumentHelper.Initialise(options.Value, out var cacheOptions);
 
         _insertionOptions = new()
@@ -34,7 +35,7 @@ internal sealed class CacheService : ICacheService
         where T : class
     {
         await _distributedCache.SetStringAsync(key, JsonSerializer.Serialize(value), _insertionOptions,
-            cancellationToken);
+                                               cancellationToken);
     }
 
     public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken)

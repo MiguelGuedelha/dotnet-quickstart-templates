@@ -19,16 +19,16 @@ public static class ServiceConfiguration
         IConfiguration configuration)
     {
         return services
-            .AddPackageServices(configuration)
-            .AddLayerServices(configuration);
+           .AddPackageServices(configuration)
+           .AddLayerServices(configuration);
     }
 
     private static IServiceCollection AddLayerServices(this IServiceCollection services, IConfiguration configuration)
     {
         services
-            .AddScoped<ICacheService, CacheService>()
-            .Configure<CacheOptions>(configuration.GetSection(CacheOptions.Region))
-            .Configure<CacheKeyOptions>(configuration.GetSection(CacheKeyOptions.Region));
+           .AddScoped<ICacheService, CacheService>()
+           .Configure<CacheOptions>(configuration.GetSection(CacheOptions.Region))
+           .Configure<CacheKeyOptions>(configuration.GetSection(CacheKeyOptions.Region));
 
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
@@ -49,7 +49,9 @@ public static class ServiceConfiguration
         });
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseInMemoryDatabase("CleanArchMinimalDb"));
+        {
+            options.UseSqlite(configuration.GetConnectionString("Sqlite"));
+        });
 
         return services;
     }

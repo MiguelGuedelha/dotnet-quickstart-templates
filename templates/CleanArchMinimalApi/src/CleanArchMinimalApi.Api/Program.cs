@@ -16,9 +16,9 @@ builder.Services.AddSwaggerGen();
 //     });
 
 var logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(configuration)
-    .Enrich.FromLogContext()
-    .CreateLogger();
+   .ReadFrom.Configuration(configuration)
+   .Enrich.FromLogContext()
+   .CreateLogger();
 
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);

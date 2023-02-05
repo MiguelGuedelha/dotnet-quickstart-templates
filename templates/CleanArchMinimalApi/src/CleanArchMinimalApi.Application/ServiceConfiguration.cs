@@ -14,9 +14,9 @@ public static class ServiceConfiguration
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         return services
-            .AddPackageServices()
-            .AddMiddleware()
-            .AddLayerServices();
+           .AddPackageServices()
+           .AddMiddleware()
+           .AddLayerServices();
     }
 
     private static IServiceCollection AddPackageServices(this IServiceCollection services)
@@ -40,9 +40,9 @@ public static class ServiceConfiguration
     private static IServiceCollection AddLayerServices(this IServiceCollection services)
     {
         services
-            .AddScoped<ITodoCommandService, TodoCommandService>()
-            .AddScoped<ITodoQueryService, TodoQueryService>()
-            .AddTransient<IDateTimeService, DateTimeService>();
+           .AddScoped<ITodoCommandService, TodoCommandService>()
+           .AddScoped<ITodoQueryService, TodoQueryService>()
+           .AddTransient<IDateTimeService, DateTimeService>();
 
         return services;
     }

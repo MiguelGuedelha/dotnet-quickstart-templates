@@ -30,9 +30,9 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         }
         catch (Exception e)
         {
-#pragma warning disable CA1848 // Use the LoggerMessage delegates
+            #pragma warning disable CA1848 // Use the LoggerMessage delegates
             _logger.LogError(e, e.Message);
-#pragma warning restore CA1848 // Use the LoggerMessage delegates
+            #pragma warning restore CA1848 // Use the LoggerMessage delegates
             await HandleExceptionAsync(context, e);
         }
     }
@@ -41,7 +41,8 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
     {
         var statusCode = GetStatusCode(exception);
 
-        var statusName = string.Join(" ", CamelCase().Split(((HttpStatusCode)statusCode).ToString()));
+        var statusName = string.Join(" ", CamelCase()
+                                        .Split(((HttpStatusCode)statusCode).ToString()));
 
         var response = new
         {

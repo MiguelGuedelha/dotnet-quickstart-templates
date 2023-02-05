@@ -10,6 +10,9 @@ internal sealed record GetTodoRequest
 
     public static GetTodoQuery MapToCommand(GetTodoRequest request)
     {
-        return new() { Id = request.Id };
+        return new()
+        {
+            Id = request.Id
+        };
     }
 }
