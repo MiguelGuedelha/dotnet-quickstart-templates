@@ -1,4 +1,4 @@
-﻿namespace CleanArchMinimalApi.Infrastructure.Options;
+﻿namespace CleanArchMinimalApi.Infrastructure.Shared.Caching;
 
 internal sealed class CacheOptions
 {

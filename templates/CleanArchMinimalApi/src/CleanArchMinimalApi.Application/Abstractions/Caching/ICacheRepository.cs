@@ -1,6 +1,6 @@
 ﻿namespace CleanArchMinimalApi.Application.Abstractions.Caching;
 
-public interface ICacheService
+public interface ICacheRepository
 {
     Task SetAsync<T>(string key, T value, CancellationToken cancellationToken)
         where T : class;

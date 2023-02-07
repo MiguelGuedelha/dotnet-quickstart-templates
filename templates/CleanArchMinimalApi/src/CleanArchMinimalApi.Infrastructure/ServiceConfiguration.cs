@@ -1,7 +1,7 @@
 ﻿using CleanArchMinimalApi.Application.Abstractions.Caching;
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
+using CleanArchMinimalApi.Infrastructure.Features.Todo.Options;
 using CleanArchMinimalApi.Infrastructure.Features.Todo.Repositories;
-using CleanArchMinimalApi.Infrastructure.Options;
 using CleanArchMinimalApi.Infrastructure.Shared.Caching;
 using CleanArchMinimalApi.Infrastructure.Shared.Persistence;
 using Microsoft.AspNetCore.Builder;
@@ -26,13 +26,15 @@ public static class ServiceConfiguration
     private static IServiceCollection AddLayerServices(this IServiceCollection services, IConfiguration configuration)
     {
         services
-           .AddScoped<ICacheService, CacheService>()
-           .Configure<CacheOptions>(configuration.GetSection(CacheOptions.Region))
-           .Configure<CacheKeyOptions>(configuration.GetSection(CacheKeyOptions.Region));
+           .AddScoped<ICacheRepository, CacheRepository>()
+           .Configure<CacheOptions>(configuration.GetSection(CacheOptions.Region));
 
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
-        services.AddTransient<ITodoRepository, TodoRepository>();
+        services
+           .AddScoped<TodoRepository>()
+           .AddScoped<ITodoRepository, CachedTodoRepository>()
+           .Configure<TodoOptions>(configuration.GetSection(TodoOptions.Region));
 
         return services;
     }

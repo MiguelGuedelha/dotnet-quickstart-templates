@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 using CleanArchMinimalApi.Application.Abstractions.Caching;
-using CleanArchMinimalApi.Infrastructure.Options;
 using CleanArchMinimalApi.Shared.Helpers;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
@@ -8,13 +7,13 @@ using StackExchange.Redis;
 
 namespace CleanArchMinimalApi.Infrastructure.Shared.Caching;
 
-internal sealed class CacheService : ICacheService
+internal sealed class CacheRepository : ICacheRepository
 {
     private readonly IDistributedCache _distributedCache;
     private readonly DistributedCacheEntryOptions _insertionOptions;
     private readonly IEnumerable<IServer> _servers;
 
-    public CacheService(
+    public CacheRepository(
         IDistributedCache distributedCache,
         IConnectionMultiplexer multiplexer,
         IOptions<CacheOptions> options)

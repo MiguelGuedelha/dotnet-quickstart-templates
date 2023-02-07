@@ -2,6 +2,7 @@
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
 using CleanArchMinimalApi.Domain.Features.Todo;
 using CleanArchMinimalApi.Infrastructure.Shared.Persistence;
+using CleanArchMinimalApi.Shared.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchMinimalApi.Infrastructure.Features.Todo.Repositories;
@@ -12,7 +13,7 @@ internal sealed class TodoRepository : ITodoRepository
 
     public TodoRepository(IApplicationDbContext applicationDbContext)
     {
-        _applicationDbContext = applicationDbContext;
+        ArgumentHelper.Initialise(applicationDbContext, out _applicationDbContext);
     }
 
     public async Task<bool> CreateTodoItem(TodoItem item, CancellationToken cancellationToken)
