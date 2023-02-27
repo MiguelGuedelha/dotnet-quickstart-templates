@@ -19,9 +19,9 @@ internal sealed class CachedTodoRepository : ITodoRepository
         ICacheRepository cacheRepository,
         IOptions<TodoOptions> todoOptions)
     {
-        ArgumentHelper.Initialise(todoRepository, out _todoRepository);
-        ArgumentHelper.Initialise(cacheRepository, out _cacheRepository);
-        ArgumentHelper.Initialise(todoOptions.Value, out _todoOptions);
+        _todoRepository = ArgumentHelper.Initialise(todoRepository);
+        _cacheRepository = ArgumentHelper.Initialise(cacheRepository);
+        _todoOptions = ArgumentHelper.Initialise(todoOptions.Value);
     }
 
     public async Task<bool> CreateTodoItem(TodoItem item, CancellationToken cancellationToken)

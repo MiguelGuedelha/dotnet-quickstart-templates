@@ -9,6 +9,7 @@ namespace CleanArchMinimalApi.Infrastructure.Shared.Caching;
 
 internal sealed class CacheRepository : ICacheRepository
 {
+    private readonly CacheOptions _cacheOptions;
     private readonly IDistributedCache _distributedCache;
     private readonly DistributedCacheEntryOptions _insertionOptions;
     private readonly IEnumerable<IServer> _servers;
@@ -18,15 +19,14 @@ internal sealed class CacheRepository : ICacheRepository
         IConnectionMultiplexer multiplexer,
         IOptions<CacheOptions> options)
     {
-        ArgumentHelper.Initialise(distributedCache, out _distributedCache);
-        ArgumentHelper.Initialise(multiplexer.GetEndPoints()
-                                     .Select(x => multiplexer.GetServer(x)), out _servers);
-        ArgumentHelper.Initialise(options.Value, out var cacheOptions);
-
+        _distributedCache = ArgumentHelper.Initialise(distributedCache);
+        _servers = ArgumentHelper.Initialise(multiplexer.GetEndPoints()
+                                                .Select(x => multiplexer.GetServer(x)));
+        _cacheOptions = ArgumentHelper.Initialise(options.Value);
         _insertionOptions = new()
         {
-            AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(cacheOptions.AbsoluteExpiration),
-            SlidingExpiration = TimeSpan.FromSeconds(cacheOptions.SlidingExpiration)
+            AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(_cacheOptions.AbsoluteExpiration),
+            SlidingExpiration = TimeSpan.FromSeconds(_cacheOptions.SlidingExpiration)
         };
     }
 

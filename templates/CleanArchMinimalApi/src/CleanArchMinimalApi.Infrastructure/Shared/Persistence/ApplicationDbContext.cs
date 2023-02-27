@@ -8,6 +8,7 @@ internal sealed class ApplicationDbContext : DbContext, IApplicationDbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
+        //For In-Memory DB, remove as needed
         Database.EnsureCreated();
     }
 

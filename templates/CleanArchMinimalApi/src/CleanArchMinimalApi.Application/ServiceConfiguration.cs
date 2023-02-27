@@ -33,6 +33,7 @@ public static class ServiceConfiguration
     private static IServiceCollection AddMiddleware(this IServiceCollection services)
     {
         services.AddTransient<ExceptionHandlingMiddleware>();
+        services.AddScoped<CorrelationIdMiddleware>();
 
         return services;
     }
@@ -42,6 +43,7 @@ public static class ServiceConfiguration
         services
            .AddScoped<ITodoCommandService, TodoCommandService>()
            .AddScoped<ITodoQueryService, TodoQueryService>()
+           .AddScoped<ICorrelationIdService, CorrelationIdService>()
            .AddTransient<IDateTimeService, DateTimeService>();
 
         return services;
@@ -49,6 +51,7 @@ public static class ServiceConfiguration
 
     public static WebApplication UseApplicationServices(this WebApplication app)
     {
+        app.UseMiddleware<CorrelationIdMiddleware>();
         app.UseMiddleware<ExceptionHandlingMiddleware>();
 
         return app;

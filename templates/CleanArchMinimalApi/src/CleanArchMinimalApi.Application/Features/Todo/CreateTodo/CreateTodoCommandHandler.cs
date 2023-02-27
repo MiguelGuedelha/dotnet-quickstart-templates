@@ -10,7 +10,7 @@ internal sealed class CreateTodoCommandHandler : ICommandHandler<CreateTodoComma
 
     public CreateTodoCommandHandler(ITodoCommandService todoCommandService)
     {
-        ArgumentHelper.Initialise(todoCommandService, out _todoCommandService);
+        _todoCommandService = ArgumentHelper.Initialise(todoCommandService);
     }
 
     public async Task<CreateTodoCommandResult> Handle(CreateTodoCommand request, CancellationToken cancellationToken)

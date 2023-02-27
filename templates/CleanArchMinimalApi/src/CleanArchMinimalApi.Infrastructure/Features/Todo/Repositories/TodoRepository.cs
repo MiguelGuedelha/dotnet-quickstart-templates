@@ -13,7 +13,7 @@ internal sealed class TodoRepository : ITodoRepository
 
     public TodoRepository(IApplicationDbContext applicationDbContext)
     {
-        ArgumentHelper.Initialise(applicationDbContext, out _applicationDbContext);
+        _applicationDbContext = ArgumentHelper.Initialise(applicationDbContext);
     }
 
     public async Task<bool> CreateTodoItem(TodoItem item, CancellationToken cancellationToken)

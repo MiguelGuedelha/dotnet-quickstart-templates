@@ -35,6 +35,7 @@ indent_size = 4
 tab_width = 4
 insert_final_newline = true
 charset = utf-8-bom
+dotnet_diagnostic.CA1848.severity = none
 
 # .NET
 dotnet_separate_import_directive_groups = false

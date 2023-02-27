@@ -18,9 +18,11 @@ public static class ServiceConfiguration
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        return services
+        services
            .AddPackageServices(configuration)
            .AddLayerServices(configuration);
+
+        return services;
     }
 
     private static IServiceCollection AddLayerServices(this IServiceCollection services, IConfiguration configuration)
@@ -50,6 +52,7 @@ public static class ServiceConfiguration
             options.ConnectionMultiplexerFactory = () => Task.FromResult(connMultiplexer as IConnectionMultiplexer);
         });
 
+        //Swap out for preferred DB connection
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseSqlite(configuration.GetConnectionString("Sqlite"));
