@@ -1,6 +1,7 @@
 ﻿using CleanArchMinimalApi.Application.Features.Todo.GetTodo;
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
 using CleanArchMinimalApi.Application.Shared.Exceptions;
+using CleanArchMinimalApi.Shared.Helpers;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Services;
 
@@ -10,7 +11,7 @@ internal sealed class TodoQueryService : ITodoQueryService
 
     public TodoQueryService(ITodoRepository todoRepository)
     {
-        _todoRepository = todoRepository;
+        _todoRepository = ArgumentHelper.Initialise(todoRepository);
     }
 
     public async Task<GetTodoQueryResult> GetTodo(GetTodoQuery query, CancellationToken cancellationToken)

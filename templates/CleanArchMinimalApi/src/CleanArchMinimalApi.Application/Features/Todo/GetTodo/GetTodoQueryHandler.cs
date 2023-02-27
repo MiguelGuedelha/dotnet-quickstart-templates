@@ -1,5 +1,6 @@
 ﻿using CleanArchMinimalApi.Application.Abstractions.Mediator;
 using CleanArchMinimalApi.Application.Features.Todo.Services;
+using CleanArchMinimalApi.Shared.Helpers;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.GetTodo;
 
@@ -9,7 +10,7 @@ internal sealed class GetTodoQueryHandler : IQueryHandler<GetTodoQuery, GetTodoQ
 
     public GetTodoQueryHandler(ITodoQueryService todoQueryService)
     {
-        _todoQueryService = todoQueryService;
+        _todoQueryService = ArgumentHelper.Initialise(todoQueryService);
     }
 
     public async Task<GetTodoQueryResult> Handle(GetTodoQuery request, CancellationToken cancellationToken)

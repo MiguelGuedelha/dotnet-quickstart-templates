@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using CleanArchMinimalApi.Shared.Helpers;
+using FluentValidation;
 using MediatR;
 using ValidationException = CleanArchMinimalApi.Application.Shared.Exceptions.ValidationException;
 
@@ -10,7 +11,7 @@ internal class BaseValidationBehavior<TRequest, TResponse>
 
     protected BaseValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
     {
-        _validators = validators;
+        _validators = ArgumentHelper.Initialise(validators);
     }
 
     protected async Task<TResponse> Handle(
