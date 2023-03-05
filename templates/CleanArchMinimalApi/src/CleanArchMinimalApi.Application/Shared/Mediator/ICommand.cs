@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CleanArchMinimalApi.Application.Abstractions.Mediator;
+namespace CleanArchMinimalApi.Application.Shared.Mediator;
 
 internal interface ICommand<out TResponse> : IRequest<TResponse>
 {
