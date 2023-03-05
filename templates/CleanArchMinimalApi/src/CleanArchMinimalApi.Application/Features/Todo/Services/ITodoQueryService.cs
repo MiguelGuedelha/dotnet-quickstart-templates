@@ -2,7 +2,7 @@
 
 namespace CleanArchMinimalApi.Application.Features.Todo.Services;
 
-public interface ITodoQueryService
+internal interface ITodoQueryService
 {
     Task<GetTodoQueryResult> GetTodo(GetTodoQuery query, CancellationToken cancellationToken);
 }

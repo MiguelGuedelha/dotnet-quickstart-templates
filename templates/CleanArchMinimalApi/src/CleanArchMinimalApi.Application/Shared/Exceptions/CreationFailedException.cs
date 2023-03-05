@@ -6,11 +6,13 @@ internal sealed class CreationFailedException<T> : Exception
     {
     }
 
-    public CreationFailedException(string message) : base(message)
+    public CreationFailedException(string message)
+        : base(message)
     {
     }
 
-    public CreationFailedException(string message, Exception exception) : base(message, exception)
+    public CreationFailedException(string message, Exception exception)
+        : base(message, exception)
     {
     }
 }

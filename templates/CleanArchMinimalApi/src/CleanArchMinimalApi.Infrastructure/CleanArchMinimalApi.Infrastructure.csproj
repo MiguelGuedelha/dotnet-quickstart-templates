@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite"/>
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis"/>
     <PackageReference Include="StackExchange.Redis"/>
   </ItemGroup>

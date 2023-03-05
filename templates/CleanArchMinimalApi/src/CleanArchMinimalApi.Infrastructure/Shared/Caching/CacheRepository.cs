@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 using CleanArchMinimalApi.Application.Abstractions.Caching;
-using CleanArchMinimalApi.Infrastructure.Options;
 using CleanArchMinimalApi.Shared.Helpers;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
@@ -8,23 +7,26 @@ using StackExchange.Redis;
 
 namespace CleanArchMinimalApi.Infrastructure.Shared.Caching;
 
-internal sealed class CacheService : ICacheService
+internal sealed class CacheRepository : ICacheRepository
 {
+    private readonly CacheOptions _cacheOptions;
     private readonly IDistributedCache _distributedCache;
     private readonly DistributedCacheEntryOptions _insertionOptions;
     private readonly IEnumerable<IServer> _servers;
 
-    public CacheService(IDistributedCache distributedCache, IConnectionMultiplexer multiplexer,
+    public CacheRepository(
+        IDistributedCache distributedCache,
+        IConnectionMultiplexer multiplexer,
         IOptions<CacheOptions> options)
     {
-        ArgumentHelper.Initialise(distributedCache, out _distributedCache);
-        ArgumentHelper.Initialise(multiplexer.GetEndPoints().Select(x => multiplexer.GetServer(x)), out _servers);
-        ArgumentHelper.Initialise(options.Value, out var cacheOptions);
-
+        _distributedCache = ArgumentHelper.Initialise(distributedCache);
+        _servers = ArgumentHelper.Initialise(multiplexer.GetEndPoints()
+                                                .Select(x => multiplexer.GetServer(x)));
+        _cacheOptions = ArgumentHelper.Initialise(options.Value);
         _insertionOptions = new()
         {
-            AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(cacheOptions.AbsoluteExpiration),
-            SlidingExpiration = TimeSpan.FromSeconds(cacheOptions.SlidingExpiration)
+            AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(_cacheOptions.AbsoluteExpiration),
+            SlidingExpiration = TimeSpan.FromSeconds(_cacheOptions.SlidingExpiration)
         };
     }
 
@@ -32,7 +34,7 @@ internal sealed class CacheService : ICacheService
         where T : class
     {
         await _distributedCache.SetStringAsync(key, JsonSerializer.Serialize(value), _insertionOptions,
-            cancellationToken);
+                                               cancellationToken);
     }
 
     public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken)
@@ -41,9 +43,7 @@ internal sealed class CacheService : ICacheService
         var cacheString = await _distributedCache.GetStringAsync(key, cancellationToken);
 
         if (string.IsNullOrWhiteSpace(cacheString))
-        {
             return null;
-        }
 
         try
         {

@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchMinimalApi.Presentation.Features.Todo.GetTodo;
 
-public sealed record GetTodoRequest
+internal sealed record GetTodoRequest
 {
-    [FromRoute] public Guid Id { get; init; }
+    [FromRoute]
+    public Guid Id { get; init; }
 
     public static GetTodoQuery MapToCommand(GetTodoRequest request)
     {

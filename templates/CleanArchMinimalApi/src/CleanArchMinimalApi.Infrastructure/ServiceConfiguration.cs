@@ -1,7 +1,7 @@
 ﻿using CleanArchMinimalApi.Application.Abstractions.Caching;
 using CleanArchMinimalApi.Application.Features.Todo.Repositories;
+using CleanArchMinimalApi.Infrastructure.Features.Todo.Options;
 using CleanArchMinimalApi.Infrastructure.Features.Todo.Repositories;
-using CleanArchMinimalApi.Infrastructure.Options;
 using CleanArchMinimalApi.Infrastructure.Shared.Caching;
 using CleanArchMinimalApi.Infrastructure.Shared.Persistence;
 using Microsoft.AspNetCore.Builder;
@@ -14,24 +14,29 @@ namespace CleanArchMinimalApi.Infrastructure;
 
 public static class ServiceConfiguration
 {
-    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,
+    public static IServiceCollection AddInfrastructureServices(
+        this IServiceCollection services,
         IConfiguration configuration)
     {
-        return services
-            .AddPackageServices(configuration)
-            .AddLayerServices(configuration);
+        services
+           .AddPackageServices(configuration)
+           .AddLayerServices(configuration);
+
+        return services;
     }
 
     private static IServiceCollection AddLayerServices(this IServiceCollection services, IConfiguration configuration)
     {
         services
-            .AddScoped<ICacheService, CacheService>()
-            .Configure<CacheOptions>(configuration.GetSection(CacheOptions.Region))
-            .Configure<CacheKeyOptions>(configuration.GetSection(CacheKeyOptions.Region));
+           .AddScoped<ICacheRepository, CacheRepository>()
+           .Configure<CacheOptions>(configuration.GetSection(CacheOptions.Region));
 
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
-        services.AddTransient<ITodoRepository, TodoRepository>();
+        services
+           .AddScoped<TodoRepository>()
+           .AddScoped<ITodoRepository, CachedTodoRepository>()
+           .Configure<TodoOptions>(configuration.GetSection(TodoOptions.Region));
 
         return services;
     }
@@ -47,8 +52,11 @@ public static class ServiceConfiguration
             options.ConnectionMultiplexerFactory = () => Task.FromResult(connMultiplexer as IConnectionMultiplexer);
         });
 
+        //Swap out for preferred DB connection
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseInMemoryDatabase("CleanArchMinimalDb"));
+        {
+            options.UseSqlite(configuration.GetConnectionString("Sqlite"));
+        });
 
         return services;
     }

@@ -36,6 +36,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchMinimalApi.Present
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Shared", "src\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj", "{178C9D38-6121-4A53-AA32-D13B6F0113CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Infrastructure.Tests.Unit", "tests\CleanArchMinimalApi.Infrastructure.Tests.Unit\CleanArchMinimalApi.Infrastructure.Tests.Unit.csproj", "{BAB3E9CE-E8CA-4454-A2E1-4AC74CB0AA3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Presentation.Tests.Unit", "tests\CleanArchMinimalApi.Presentation.Tests.Unit\CleanArchMinimalApi.Presentation.Tests.Unit.csproj", "{72F6ECC9-B052-4BB0-A452-71913816B1AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMinimalApi.Application.Tests.Integration", "tests\CleanArchMinimalApi.Application.Tests.Integration\CleanArchMinimalApi.Application.Tests.Integration.csproj", "{52326203-C01C-4E2F-AE78-88E740B4E9DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +80,18 @@ Global
 		{178C9D38-6121-4A53-AA32-D13B6F0113CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{178C9D38-6121-4A53-AA32-D13B6F0113CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{178C9D38-6121-4A53-AA32-D13B6F0113CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB3E9CE-E8CA-4454-A2E1-4AC74CB0AA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB3E9CE-E8CA-4454-A2E1-4AC74CB0AA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB3E9CE-E8CA-4454-A2E1-4AC74CB0AA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB3E9CE-E8CA-4454-A2E1-4AC74CB0AA3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72F6ECC9-B052-4BB0-A452-71913816B1AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72F6ECC9-B052-4BB0-A452-71913816B1AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72F6ECC9-B052-4BB0-A452-71913816B1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72F6ECC9-B052-4BB0-A452-71913816B1AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52326203-C01C-4E2F-AE78-88E740B4E9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52326203-C01C-4E2F-AE78-88E740B4E9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52326203-C01C-4E2F-AE78-88E740B4E9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52326203-C01C-4E2F-AE78-88E740B4E9DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +105,9 @@ Global
 		{00EAF5F8-4741-43B8-84C3-AD952BC989B1} = {395D9CDA-13EC-4D43-AF82-E40A8BABE995}
 		{1E20B772-F138-488B-95D1-B0B1D4782BDB} = {918BBC0B-14D4-4707-8F32-E67FAE68B9DB}
 		{178C9D38-6121-4A53-AA32-D13B6F0113CF} = {918BBC0B-14D4-4707-8F32-E67FAE68B9DB}
+		{BAB3E9CE-E8CA-4454-A2E1-4AC74CB0AA3A} = {395D9CDA-13EC-4D43-AF82-E40A8BABE995}
+		{72F6ECC9-B052-4BB0-A452-71913816B1AD} = {395D9CDA-13EC-4D43-AF82-E40A8BABE995}
+		{52326203-C01C-4E2F-AE78-88E740B4E9DC} = {395D9CDA-13EC-4D43-AF82-E40A8BABE995}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2B447ED-0E66-4846-8365-F9E7C93413A9}

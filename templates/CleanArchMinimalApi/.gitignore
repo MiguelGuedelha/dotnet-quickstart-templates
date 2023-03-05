@@ -11,6 +11,9 @@ nupkg/
 # Rider
 .idea
 
+# SQLite
+*.db
+
 # User-specific files
 *.suo
 *.user

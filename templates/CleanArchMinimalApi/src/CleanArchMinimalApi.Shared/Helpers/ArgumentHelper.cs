@@ -2,9 +2,9 @@
 
 public static class ArgumentHelper
 {
-    public static void Initialise<T>(T argument, out T destination)
+    public static T Initialise<T>(T argument)
     {
         ArgumentNullException.ThrowIfNull(argument);
-        destination = argument;
+        return argument;
     }
 }

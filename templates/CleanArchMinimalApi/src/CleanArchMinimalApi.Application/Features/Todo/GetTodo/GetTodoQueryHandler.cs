@@ -1,15 +1,16 @@
 ﻿using CleanArchMinimalApi.Application.Features.Todo.Services;
 using CleanArchMinimalApi.Application.Shared.Mediator;
+using CleanArchMinimalApi.Shared.Helpers;
 
 namespace CleanArchMinimalApi.Application.Features.Todo.GetTodo;
 
-public class GetTodoQueryHandler : IQueryHandler<GetTodoQuery, GetTodoQueryResult>
+internal sealed class GetTodoQueryHandler : IQueryHandler<GetTodoQuery, GetTodoQueryResult>
 {
     private readonly ITodoQueryService _todoQueryService;
 
     public GetTodoQueryHandler(ITodoQueryService todoQueryService)
     {
-        _todoQueryService = todoQueryService;
+        _todoQueryService = ArgumentHelper.Initialise(todoQueryService);
     }
 
     public async Task<GetTodoQueryResult> Handle(GetTodoQuery request, CancellationToken cancellationToken)

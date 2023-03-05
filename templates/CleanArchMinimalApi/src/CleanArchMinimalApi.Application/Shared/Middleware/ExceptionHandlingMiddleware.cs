@@ -3,6 +3,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using CleanArchMinimalApi.Application.Shared.Exceptions;
+using CleanArchMinimalApi.Application.Shared.Services;
+using CleanArchMinimalApi.Shared.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
@@ -15,11 +17,15 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
     };
 
+    private readonly ICorrelationIdService _correlationIdService;
     private readonly ILogger<ExceptionHandlingMiddleware> _logger;
 
-    public ExceptionHandlingMiddleware(ILogger<ExceptionHandlingMiddleware> logger)
+    public ExceptionHandlingMiddleware(
+        ILogger<ExceptionHandlingMiddleware> logger,
+        ICorrelationIdService correlationIdService)
     {
-        _logger = logger;
+        _logger = ArgumentHelper.Initialise(logger);
+        _correlationIdService = ArgumentHelper.Initialise(correlationIdService);
     }
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
@@ -30,9 +36,10 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
         }
         catch (Exception e)
         {
-#pragma warning disable CA1848 // Use the LoggerMessage delegates
-            _logger.LogError(e, e.Message);
-#pragma warning restore CA1848 // Use the LoggerMessage delegates
+            #pragma warning disable CA1848 // Use the LoggerMessage delegates
+            _logger.LogError(e, "Error performing request | {@CorrelationId} | {@Message} | @{StackTrace}",
+                             _correlationIdService.GetCorrelationId(), e.Message, e.StackTrace);
+            #pragma warning restore CA1848 // Use the LoggerMessage delegates
             await HandleExceptionAsync(context, e);
         }
     }
@@ -41,11 +48,15 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
     {
         var statusCode = GetStatusCode(exception);
 
-        var statusName = string.Join(" ", CamelCase().Split(((HttpStatusCode)statusCode).ToString()));
+        var statusName = string.Join(" ", CamelCase()
+                                        .Split(((HttpStatusCode)statusCode).ToString()));
 
         var response = new
         {
-            Title = statusName, Status = statusCode, Detail = exception.Message, Errors = GetErrors(exception)
+            Title = statusName,
+            Status = statusCode,
+            Detail = exception.Message,
+            Errors = GetErrors(exception)
         };
 
         httpContext.Response.ContentType = "application/json";
@@ -68,9 +79,7 @@ internal sealed partial class ExceptionHandlingMiddleware : IMiddleware
     {
         IReadOnlyDictionary<string, string[]>? errors = null;
         if (exception is ValidationException validationException)
-        {
             errors = validationException.Errors;
-        }
 
         return errors;
     }
