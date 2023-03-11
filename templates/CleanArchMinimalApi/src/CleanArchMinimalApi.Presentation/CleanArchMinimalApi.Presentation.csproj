@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj"/>
-    <ProjectReference Include="..\CleanArchMinimalApi.Application\CleanArchMinimalApi.Application.csproj"/>
+    <ProjectReference Include="..\CleanArchMinimalApi.Shared\CleanArchMinimalApi.Shared.csproj" />
+    <ProjectReference Include="..\CleanArchMinimalApi.Application\CleanArchMinimalApi.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App"/>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Carter"/>
-    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Carter" />
+    <PackageReference Include="MediatR" />
   </ItemGroup>
 
 </Project>

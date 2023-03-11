@@ -21,7 +21,10 @@ public static class ServiceConfiguration
 
     private static IServiceCollection AddPackageServices(this IServiceCollection services)
     {
-        services.AddMediatR(ApplicationAssembly.Instance);
+        services.AddMediatR(config =>
+        {
+            config.RegisterServicesFromAssembly(ApplicationAssembly.Instance);
+        });
 
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(QueryValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidationBehavior<,>));
